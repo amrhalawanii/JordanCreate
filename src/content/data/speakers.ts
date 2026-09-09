@@ -16,6 +16,7 @@ export const speakers: Speaker[] = [
     followers: '13.9M Followers',
     portrait: '/assets/speakers/rozzah.png',
     bio: 'In Rozzah’s world, identity is always in motion. Through fashion, beauty, and character-driven storytelling, her videos explore the many ways femininity can evolve, adapt, and inspire. Each transformation feels like both a performance and a mirror, offering her audience a quiet sense of belonging while sparking the courage to grow into their own.',
+    instagramUrl: 'https://www.instagram.com/rozzah/',
     order: 0,
   },
   {
@@ -25,6 +26,7 @@ export const speakers: Speaker[] = [
     followers: '12M Followers',
     portrait: '/assets/speakers/sabasham-a.png',
     bio: 'Saba Shamaa is a multi-talented content creator known for her entertaining and relatable content across food, beauty, fashion, and lifestyle. She has completed her degree as a chef at the Royal Academy of Culinary Arts, which has helped her build a credible presence in food content while continuing to grow across multiple creative categories. With 13M+ followers across platforms, Saba has built a loyal and trusted community that comments with her through her humor and authenticity.',
+    instagramUrl: 'https://www.instagram.com/saba.shamaa/',
     order: 1,
   },
   {
@@ -259,6 +261,7 @@ export const speakers: Speaker[] = [
     followers: '432K',
     portrait: '/assets/speakers/sara-al-refai.png',
     bio: 'Architect turned marketer turned media executive. Sara leads Edraak Media, founded Coconut Media Inc. and Dawrati, hosts The Secrets of Marketing podcast, and has trained over 10,000 students across the Middle East. She has done more things well than most people attempt in a lifetime — and she’s still adding to the list.',
+    instagramUrl: 'https://www.instagram.com/thesararefai?igsh=MWdiZHV4czU0ZG1wNA%3D%3D',
     order: 27,
   },
   {
@@ -268,6 +271,7 @@ export const speakers: Speaker[] = [
     followers: '3k',
     portrait: '/assets/speakers/khaled-shammout.png',
     bio: 'Hospitality, marketing, media, business, Khaled has moved across all of it and taken one thing from each: the ability to connect the right people to the right ideas at the right time. He’s the force behind The Creators Firm, and the reason things that sound impossible end up happening.',
+    instagramUrl: 'https://www.instagram.com/khaledshammout?igsh=MTZycmFreHozMnVrOQ%3D%3D',
     order: 28,
   },
   {
@@ -277,6 +281,7 @@ export const speakers: Speaker[] = [
     followers: '1K',
     portrait: '/assets/speakers/nour-maraqa.png',
     bio: 'The voice behind The K-cast Arabia, the region’s go-to podcast on Korean dramas and cinema. Nour built a dedicated audience by going deep on a world most people only watch from the outside, and made it feel like a conversation you actually want to be part of.',
+    instagramUrl: 'https://www.instagram.com/nourmaraka?igsh=bW00cjN6bm11bXF5',
     order: 29,
   },
   {
@@ -286,6 +291,7 @@ export const speakers: Speaker[] = [
     followers: '1.6M',
     portrait: '/assets/speakers/mohanad-syoof.png',
     bio: '1.6M on Instagram. 6M+ on YouTube. Mohanad built one of the biggest Arabic storytelling channels in the region from a wheelchair, covering everything from the FIFA World Cup to the streets of his city. He doesn’t just tell stories — he finds the ones nobody else thought to look for.',
+    instagramUrl: 'https://www.instagram.com/mohanadsyoof?igsh=bjkzZmNlaDVicDhy',
     order: 30,
   },
   {
@@ -295,6 +301,7 @@ export const speakers: Speaker[] = [
     followers: '15.6',
     portrait: '/assets/speakers/yousef-salem.png',
     bio: 'Professor by day, brand builder by everything else. Yousef runs The Content Factory and has quietly built the personal brands behind some of Jordan’s biggest business names. The kind of person who’s always first to arrive and last to take credit.',
+    instagramUrl: 'https://www.instagram.com/josalem?igsh=MXAxamJodmFocjdtbw%3D%3D',
     order: 31,
   },
   {
@@ -304,6 +311,7 @@ export const speakers: Speaker[] = [
     followers: '54.1k',
     portrait: '/assets/speakers/abdullah-absi.png',
     bio: 'Entrepreneur, founder of LocalMinds, and co-founder of Kitchefy, Abdullah built his audience by sharing the unglamorous reality of building companies from the ground up. 54K followers watching someone actually do it, not just talk about it. His content sits at the intersection of business and real life, and that’s exactly where it lands.',
+    instagramUrl: 'https://www.instagram.com/abdullahabsi?igsh=MTl4MXp6cDk0Ym9scQ%3D%3D',
     order: 32,
   },
   {
@@ -313,6 +321,7 @@ export const speakers: Speaker[] = [
     followers: '2.7M',
     portrait: '/assets/speakers/yazan-abuajweh.png',
     bio: 'Jordanian comedy creator and award-winning digital storyteller. Yazan won Best Comedy Content Creator at the Caravan Stars and built his audience on travel content that doesn’t take itself too seriously, sharp observations, real moments, and the kind of humour that travels as well as he does.',
+    instagramUrl: 'https://https://@leilaxnasser https://www.instagram.com/leilaxnasser?igsh=MXI4am5qdXlzeXhkZA== Followers: 2.4M  Description: They didn’t set out to build an audience — they just filmed their life together. What started as couple content became one of the most-watched relationships in the region: 2M+ followers watching the comedy, the chaos, and the quiet moments of two people figuring it out on camera. Co-founders of red.be.seen, they turned relatability into a business without ever making it feel like one.  @yazan_abuajweh https://www.instagram.com/yazan_abuajweh?igsh=MWhmdHdmcG5qNG43bg== Followers: 2.7M  Description: Jordanian comedy creator and award-winning digital storyteller. Yazan won Best Comedy Content Creator at the Caravan Stars and built his audience on travel content that doesn’t take itself too seriously — sharp observations, real moments, and the kind of humour that travels as well as he does.  @abdullahabsi https://www.instagram.com/abdullahabsi?igsh=MTl4MXp6cDk0Ym9scQ== Followers: 54.1K  Description: Entrepreneur, founder of LocalMinds, and co-founder of Kitchefy — Abdullah built his audience by sharing the unglamorous reality of building companies from the ground up. 54K followers watching someone actually do it, not just talk about it. His content sits at the intersection of business and real life, and that’s exactly where it lands.',
     order: 33,
   },
   {
@@ -322,6 +331,7 @@ export const speakers: Speaker[] = [
     followers: '2.4M',
     portrait: '/assets/speakers/nasser-laila.png',
     bio: 'They didn’t set out to build an audience, they just filmed their life together. What started as couple content became one of the most-watched relationships in the region: 2M+ followers watching the comedy, the chaos, and the quiet moments of two people figuring it out on camera. Co-founders of red.be.seen, they turned relatability into a business without ever making it feel like one.',
+    instagramUrl: 'https://https://@leilaxnasser https://www.instagram.com/leilaxnasser?igsh=MXI4am5qdXlzeXhkZA== Followers: 2.4M  Description: They didn’t set out to build an audience — they just filmed their life together. What started as couple content became one of the most-watched relationships in the region: 2M+ followers watching the comedy, the chaos, and the quiet moments of two people figuring it out on camera. Co-founders of red.be.seen, they turned relatability into a business without ever making it feel like one.  @yazan_abuajweh https://www.instagram.com/yazan_abuajweh?igsh=MWhmdHdmcG5qNG43bg== Followers: 2.7M  Description: Jordanian comedy creator and award-winning digital storyteller. Yazan won Best Comedy Content Creator at the Caravan Stars and built his audience on travel content that doesn’t take itself too seriously — sharp observations, real moments, and the kind of humour that travels as well as he does.  @abdullahabsi https://www.instagram.com/abdullahabsi?igsh=MTl4MXp6cDk0Ym9scQ== Followers: 54.1K  Description: Entrepreneur, founder of LocalMinds, and co-founder of Kitchefy — Abdullah built his audience by sharing the unglamorous reality of building companies from the ground up. 54K followers watching someone actually do it, not just talk about it. His content sits at the intersection of business and real life, and that’s exactly where it lands.',
     order: 34,
   },
   {

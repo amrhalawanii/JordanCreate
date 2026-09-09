@@ -38,7 +38,7 @@ export async function SpeakersStrip() {
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {featured.map((speaker) => (
-            <SpeakerCard key={speaker.id} speaker={speaker} />
+            <SpeakerCard key={speaker.id} speaker={speaker} linkTo="instagram" />
           ))}
         </div>
       </div>

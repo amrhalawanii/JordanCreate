@@ -11,6 +11,10 @@ export const SpeakerSchema = z.object({
   followers: z.string(),
   portrait: z.string(),
   bio: z.string(),
+  // Only populated for the home page's featured strip, where cards link
+  // straight to Instagram (the full /speakers grid links to the detail page
+  // instead). Two of these are deliberately broken — see FIDELITY-NOTES.md.
+  instagramUrl: z.string().optional(),
   order: z.number(),
 });
 export type Speaker = z.infer<typeof SpeakerSchema>;

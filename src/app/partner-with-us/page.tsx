@@ -9,10 +9,16 @@ import { FinalCTA } from "@/components/shared/FinalCTA";
 import { FAQSection } from "@/components/shared/FAQSection";
 import { getPartnerHero } from "@/content/repository";
 
+const title = "Jordan Create | Partner with Us";
+const description =
+  "A community-powered event bringing together musicians, influencers, content creators, and agencies from across the Kingdom, a creative explosion built to inspire generations.";
+
 export const metadata: Metadata = {
-  title: "Jordan Create | Partner with Us",
-  description:
-    "A community-powered event bringing together musicians, influencers, content creators, and agencies from across the Kingdom, a creative explosion built to inspire generations.",
+  title,
+  description,
+  alternates: { canonical: "/partner-with-us" },
+  openGraph: { title, description, url: "https://www.jordancreate.com/partner-with-us" },
+  twitter: { title, description },
 };
 
 export default async function PartnerWithUsPage() {

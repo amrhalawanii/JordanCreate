@@ -7,10 +7,16 @@ import { FinalCTA } from "@/components/shared/FinalCTA";
 import { FAQSection } from "@/components/shared/FAQSection";
 import { getSpeakers, getSpeakersHero } from "@/content/repository";
 
+const title = "Jordan Create | Speakers";
+const description =
+  "A community-powered event bringing together musicians, influencers, content creators, and agencies from across the Kingdom, a creative explosion built to inspire generations.";
+
 export const metadata: Metadata = {
-  title: "Jordan Create | Speakers",
-  description:
-    "A community-powered event bringing together musicians, influencers, content creators, and agencies from across the Kingdom, a creative explosion built to inspire generations.",
+  title,
+  description,
+  alternates: { canonical: "/speakers" },
+  openGraph: { title, description, url: "https://www.jordancreate.com/speakers" },
+  twitter: { title, description },
 };
 
 export default async function SpeakersPage() {
