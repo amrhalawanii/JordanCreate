@@ -20,7 +20,7 @@ export function MobileNav({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="font-label text-xs uppercase tracking-wide text-text-primary"
+        className="font-body-fallback text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary"
       >
         {open ? "Close" : "Menu"}
       </button>
@@ -45,7 +45,7 @@ export function MobileNav({
               href={contactCta.href}
               target="_blank"
               rel="noreferrer"
-              className="block w-full rounded-(--radius-pill-lg) bg-brand-orange px-6 py-3 text-center font-label text-xs font-medium text-on-orange"
+              className="block w-full rounded-(--radius-pill-lg) bg-brand-orange px-6 py-3 text-center font-body-fallback text-base font-medium leading-[1.2] text-on-orange"
             >
               {contactCta.label}
             </a>

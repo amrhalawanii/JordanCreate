@@ -43,7 +43,7 @@ export default async function SpeakerDetailPage({
         <div className="mx-auto max-w-3xl">
           <Link
             href="/speakers"
-            className="font-label text-xs uppercase tracking-wide text-text-gray-light transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+            className="font-body text-lg leading-[1.2] text-accent-red-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
           >
             ← Back to Speakers
           </Link>
@@ -61,16 +61,18 @@ export default async function SpeakerDetailPage({
             </div>
 
             <div className="flex flex-col gap-4">
-              <h1 className="font-display text-[36px] italic leading-tight text-text-primary sm:text-[48px]">
+              <h1 className="font-display text-[40px] italic leading-[1.2] text-text-primary sm:text-[54px]">
                 {speaker.name}
               </h1>
               {speaker.bio && (
-                <p className="font-body text-base leading-relaxed text-text-gray-light">
+                <p className="font-body text-xl leading-[1.2] text-text-muted-80">
                   {speaker.bio}
                 </p>
               )}
               {speaker.followers && (
-                <p className="font-label text-sm text-brand-orange">{speaker.followers}</p>
+                <p className="w-fit rounded-(--radius-pill-sm) bg-brand-orange px-3 py-1 font-body text-lg leading-[1.2] text-on-orange">
+                  {speaker.followers}
+                </p>
               )}
             </div>
           </div>

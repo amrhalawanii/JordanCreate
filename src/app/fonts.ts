@@ -1,4 +1,4 @@
-import { DM_Sans, Host_Grotesk, Cormorant_Garamond, Inter } from "next/font/google";
+import { DM_Sans, Host_Grotesk, Cormorant_Garamond, Inter, Geist } from "next/font/google";
 
 // Display serif: the live site uses TT Ramillas (a commercial typeface —
 // licensing unresolved, see EXTRACTION.md §1). Cormorant Garamond stands in
@@ -33,5 +33,15 @@ export const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body-fallback-sans",
+  display: "swap",
+});
+
+// Confirmed loaded and actually used for one specific spot: the About Us
+// "Our story" body paragraph (computed style shows Geist, not Host
+// Grotesk/Inter, for that text specifically).
+export const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-utility-sans",
   display: "swap",
 });

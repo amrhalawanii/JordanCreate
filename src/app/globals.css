@@ -24,6 +24,12 @@
   --color-brand-orange: #ea8f2d;
   --color-brand-orange-hot: #ff6b00;
   --color-on-orange: #0f0f0f;
+  /* Exact color of the footer's "Navigation" label — a distinct gold, not
+     the same hex as --color-brand-orange (confirmed via computed styles). */
+  --color-footer-nav-label: #eeba2b;
+  /* "Back to Speakers" link color on the speaker detail template — a
+     distinct red-orange, not the same hex as --color-brand-orange. */
+  --color-accent-red-orange: #f3500f;
 
   /* Type — resolved through next/font's own generated variables (see
      src/app/fonts.ts) so we get font-metric fallbacks and no layout shift,
@@ -32,6 +38,7 @@
   --font-label: var(--font-label-sans), sans-serif;
   --font-body: var(--font-body-sans), sans-serif;
   --font-body-fallback: var(--font-body-fallback-sans), sans-serif;
+  --font-utility: var(--font-utility-sans), sans-serif;
 
   /* Container */
   --container-primary: 1128px;

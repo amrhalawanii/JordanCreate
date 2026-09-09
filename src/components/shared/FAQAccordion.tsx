@@ -35,7 +35,7 @@ export function FAQAccordion({ entries }: { entries: FAQEntry[] }) {
                   aria-expanded={open}
                   className="flex w-full items-center justify-between gap-4 text-left"
                 >
-                  <span className="font-label text-sm font-medium text-text-primary">
+                  <span className="font-label text-base leading-[1.2] font-medium text-text-primary">
                     {entry.question}
                   </span>
                   <span
@@ -46,7 +46,7 @@ export function FAQAccordion({ entries }: { entries: FAQEntry[] }) {
                   </span>
                 </button>
                 {open && (
-                  <p className="mt-3 font-body text-sm leading-relaxed text-text-gray-light">
+                  <p className="mt-3 font-body text-base leading-[1.3] text-text-gray-light">
                     {entry.answer}
                   </p>
                 )}

@@ -30,7 +30,7 @@ export async function Header() {
               <li key={item.id}>
                 <Link
                   href={item.href}
-                  className="font-label text-xs uppercase tracking-wide text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+                  className="font-body-fallback text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
                 >
                   {item.label}
                 </Link>
@@ -41,7 +41,7 @@ export async function Header() {
             href={settings.contactCta.href}
             target="_blank"
             rel="noreferrer"
-            className="rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-label text-xs font-medium text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
+            className="rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
           >
             {settings.contactCta.label}
           </a>

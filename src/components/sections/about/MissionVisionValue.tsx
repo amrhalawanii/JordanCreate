@@ -19,17 +19,17 @@ export async function MissionVisionValue() {
               <Image src={b.image} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
+              <h3 className="font-display text-[40px] italic leading-[1.1] tracking-[-1.6px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-2.24px]">
                 {b.heading}
-              </p>
-              <p className="mt-4 font-body text-base leading-relaxed text-text-gray-light">
+              </h3>
+              <p className="mt-4 font-body-fallback text-lg leading-[1.5] tracking-[-0.36px] text-text-muted-80">
                 {b.body}
               </p>
               <a
                 href={b.cta.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-block rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-label text-xs font-medium uppercase tracking-wide text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
+                className="mt-6 inline-block rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
               >
                 {b.cta.label}
               </a>

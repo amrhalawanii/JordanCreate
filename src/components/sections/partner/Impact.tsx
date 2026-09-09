@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getImpactItems, getPartnerImpact } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
+import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export async function Impact() {
   const [items, copy] = await Promise.all([getImpactItems(), getPartnerImpact()]);
@@ -9,13 +10,13 @@ export async function Impact() {
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
-          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
-            {copy.eyebrow}
-          </p>
-          <h2 className="mt-3 max-w-xl font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <h2 className="mt-3 max-w-xl font-display text-[40px] italic leading-[1.2] text-text-primary uppercase sm:text-[56px]">
             {copy.heading}
           </h2>
-          <p className="mt-3 max-w-lg font-body text-sm text-text-gray-light">{copy.sub}</p>
+          <p className="mt-3 max-w-lg font-body-fallback text-lg font-medium leading-[1.5] text-text-gray-light">
+            {copy.sub}
+          </p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
@@ -36,10 +37,10 @@ export async function Impact() {
               <div key={item.id} className="flex gap-4">
                 <Image src={item.icon} alt="" width={30} height={30} className="mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-label text-sm font-medium uppercase tracking-wide text-text-primary">
+                  <h3 className="font-display text-xl italic leading-[1.5] text-text-primary">
                     {item.title}
                   </h3>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-text-gray-light">
+                  <p className="mt-2 font-body-fallback text-lg font-medium leading-[1.5] text-text-gray-light">
                     {item.body}
                   </p>
                 </div>

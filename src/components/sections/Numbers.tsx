@@ -1,6 +1,7 @@
 import { getHomeStats } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
 import { CountUpStat } from "@/components/shared/CountUpStat";
+import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export async function Numbers() {
   const stats = await getHomeStats();
@@ -9,8 +10,8 @@ export async function Numbers() {
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
-          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">Numbers</p>
-          <h2 className="mt-3 max-w-lg font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+          <Eyebrow>Numbers</Eyebrow>
+          <h2 className="mt-3 max-w-lg font-display text-[40px] italic leading-[1.1] tracking-[-1.2px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-1.68px]">
             The numbers speak for themselves
           </h2>
         </Reveal>
@@ -27,8 +28,10 @@ export async function Numbers() {
                 value={stat.value}
                 className="font-display text-[46px] italic leading-none text-brand-orange"
               />
-              <span className="font-display text-2xl italic text-text-primary">{stat.label}</span>
-              <p className="font-body text-sm leading-relaxed text-text-gray-light">
+              <span className="font-display text-2xl italic leading-[1.7] text-text-primary">
+                {stat.label}
+              </span>
+              <p className="font-body-fallback text-base leading-[1.7] text-text-muted-60">
                 {stat.sublabel}
               </p>
             </Reveal>

@@ -13,6 +13,10 @@ export type InfoTab = z.infer<typeof InfoTabSchema>;
 export const PageHeroSchema = z.object({
   id: z.string(),
   heading: z.string(),
+  // Exact live desktop font-size in px — the three page heroes are NOT the
+  // same size (Speakers/About: 166px, Partner: 100px), confirmed via
+  // computed styles. See PageHero.tsx for the responsive scale-down.
+  headingSizeDesktop: z.number(),
   subheading: z.string(),
   cta: CTASchema.optional(),
   backgroundImage: z.string(),

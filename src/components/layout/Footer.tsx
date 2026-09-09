@@ -18,24 +18,29 @@ export async function Footer() {
               className="object-contain object-left"
             />
           </div>
-          <p className="max-w-xs font-body text-sm text-text-gray-light">{settings.tagline}</p>
+          <p className="max-w-xs font-label text-sm leading-[1.3] text-text-gray-muted">
+            {settings.tagline}
+          </p>
           <a
             href={settings.instagramUrl}
             target="_blank"
             rel="noreferrer"
-            className="font-label text-xs uppercase tracking-wide text-text-gray-light transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+            className="font-label text-sm leading-[1.3] text-text-gray-muted transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
           >
             Instagram
           </a>
         </div>
 
         <nav aria-label="Footer">
-          <ul className="flex flex-col gap-3">
+          <p className="font-label text-sm leading-[1.3] font-medium text-footer-nav-label">
+            Navigation
+          </p>
+          <ul className="mt-3 flex flex-col gap-3">
             {navItems.map((item) => (
               <li key={item.id}>
                 <Link
                   href={item.href}
-                  className="font-label text-xs uppercase tracking-wide text-text-gray-light transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-text-primary"
+                  className="font-label text-sm leading-[1.3] text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
                 >
                   {item.label}
                 </Link>

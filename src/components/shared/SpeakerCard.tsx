@@ -15,9 +15,13 @@ function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
         />
       </div>
       <div>
-        <p className="font-label text-sm font-medium text-text-primary">{speaker.name}</p>
+        <p className="font-display text-xl italic leading-[1.6] tracking-[-0.6px] text-text-primary">
+          {speaker.name}
+        </p>
         {speaker.followers && (
-          <p className="font-label text-xs text-brand-orange">{speaker.followers}</p>
+          <p className="font-body-fallback text-base leading-[1.4] text-text-gray-light">
+            {speaker.followers}
+          </p>
         )}
       </div>
     </>

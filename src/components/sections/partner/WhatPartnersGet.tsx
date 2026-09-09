@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getPartnerBenefits, getWhatPartnersGet } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
+import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export async function WhatPartnersGet() {
   const [benefits, copy] = await Promise.all([getPartnerBenefits(), getWhatPartnersGet()]);
@@ -9,13 +10,13 @@ export async function WhatPartnersGet() {
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
-          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
-            {copy.eyebrow}
-          </p>
-          <h2 className="mt-3 max-w-2xl font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          {/* copy.headingLine2 ("BE PART OF THE MOVEMENT") isn't rendered
+              on the live site anymore — re-verified via computed styles,
+              genuinely absent, not an extraction miss. The site has
+              apparently dropped it since the master prompt was written. */}
+          <h2 className="mt-3 max-w-2xl font-display text-[40px] italic leading-[1.2] text-text-primary uppercase sm:text-[56px]">
             {copy.headingLine1}
-            <br />
-            {copy.headingLine2}
           </h2>
         </Reveal>
 
@@ -32,8 +33,12 @@ export async function WhatPartnersGet() {
                 height={20}
                 className="opacity-60"
               />
-              <h3 className="font-display text-2xl italic text-text-primary">{b.title}</h3>
-              <p className="font-body text-sm leading-relaxed text-text-gray-light">{b.body}</p>
+              <h3 className="font-display text-xl italic leading-[1.5] text-text-primary">
+                {b.title}
+              </h3>
+              <p className="font-body-fallback text-lg font-medium leading-[1.5] text-text-gray-light">
+                {b.body}
+              </p>
             </Reveal>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import { getFAQEntries } from "@/content/repository";
 import { FAQAccordion } from "./FAQAccordion";
 import { Reveal } from "./Reveal";
+import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export async function FAQSection() {
   const entries = await getFAQEntries();
@@ -9,9 +10,9 @@ export async function FAQSection() {
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
-          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">FAQ</p>
-          <h2 className="mt-3 max-w-lg font-display text-[32px] italic leading-tight text-text-primary">
-            Your questions, answered with clarity
+          <Eyebrow>FAQ</Eyebrow>
+          <h2 className="mt-3 max-w-lg font-display text-[28px] italic leading-[1.1] tracking-[-0.84px] text-text-gray-muted sm:text-[36px] sm:tracking-[-1.08px]">
+            <span className="text-text-primary">Your questions,</span> answered with clarity
           </h2>
         </Reveal>
         <div className="mt-10">

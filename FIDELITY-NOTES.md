@@ -3,6 +3,63 @@
 Every deliberate deviation from the live site, and every known defect on the
 live site that was replicated rather than fixed.
 
+## Typography precision pass (2026-09-10)
+
+The initial build (Phases 2–5) used Tailwind's default type scale and
+reasonable-looking approximations for font family/size/color per role. A
+follow-up pass cross-referenced every visible text style against the
+Phase 0 computed-style JSON (`reference/computed/*.json`) — the exact
+`getComputedStyle()` output from the live site — and corrected every
+mismatch found. Notable corrections, all now reflected in the components
+themselves:
+
+- **Eyebrow labels** ("GET TO KNOW US", "NUMBERS", "SPEAKERS", etc.) are
+  Inter 14px **gray** (`#858585`), not DM Sans 12px **orange** as first
+  built. Centralized in `src/components/shared/Eyebrow.tsx`.
+- **Three headings have a partial orange highlight** on their last phrase:
+  home page's "…IN ONE PLACE", "…WHAT'S NEXT", and "…ALL HAPPENED". The
+  same "WHAT'S NEXT" heading reused on `/speakers` uses a **50%-opacity
+  fade** instead of orange — confirmed independently on both pages. About
+  Us's "MEET THE CREW" also uses the 50%-opacity treatment on "CREW".
+- **Page hero headings are not one shared size**: Speakers and About Us are
+  166px, Partner with Us is 100px (all TT Ramillas Italic). `PageHero.tsx`
+  takes a `headingSizeDesktop` per page and scales fluidly via `clamp()`.
+- **Pillar titles are Inter 20px/500 (sans, upright)**, not an italic serif
+  — same for the "Strong Presence"-style partner benefit cards and Impact
+  items, which are TT Ramillas Italic ~20-22px, not uppercase Inter.
+- **Speaker names** (grid cards, team members, detail page) are TT Ramillas
+  Italic ~20-54px, not DM Sans.
+- **Follower counts** on speaker cards are Inter 16px **gray**, never
+  orange (an earlier build mistake).
+- **FinalCTA heading** ("Don't hear about it…") uses **TT Ramillas
+  Regular** (upright), not italic, and is sentence case, not
+  uppercase-transformed.
+- **FAQ heading** is two-tone: "Your questions," in white, ", answered with
+  clarity" in gray — and 36px, not 32px.
+- **Footer** gained the "Navigation" label above the nav links (a distinct
+  gold, `#eeba2b` — not the same hex as brand orange) and nav links default
+  to white, not gray.
+- **About Us "Our story" body paragraph** is set in **Geist**, a third sans
+  family beyond DM Sans/Inter/Host Grotesk, confirmed via computed style.
+  Added to `src/app/fonts.ts` as `--font-utility`.
+- **"MISSION" / "VISION" / "VALUE"** are large 56px italic serif headings,
+  not small eyebrow captions (an earlier build mistake).
+- **The home page's "Intro block" heading** ("One of the largest Creator
+  Economy events") renders as a small eyebrow-style caption on the live
+  site, not a display heading as the master prompt's paraphrase implied —
+  the real visual weight is in the Host Grotesk 20px prose below it.
+- **The Speakers page is missing an entire section** in the original build:
+  right after the hero, the live site repeats the "MEET THE VOICES SHAPING
+  WHAT'S NEXT" eyebrow+heading+subcopy (opacity-highlighted, see above)
+  before the full grid — added to `src/app/speakers/page.tsx`.
+- **Partner page's `headingLine2`** ("BE PART OF THE MOVEMENT", from the
+  master prompt's original spec) does not exist on the live site anymore —
+  re-verified directly, genuinely absent. Removed from the rendered
+  heading; left as unused data pending a decision on whether to delete it
+  from the schema entirely.
+- **Partner page reach stats** (910+/10M+) were already re-verified live in
+  the Phase 0 pass and are correct; re-confirmed again here.
+
 ## Known defects on the live site — replicated as-is
 
 - **Broken Instagram links on two home-page speaker cards.** The Yazan

@@ -35,14 +35,14 @@ export function HeroAnimated({ hero }: { hero: HeroContent }) {
         <h1 className="font-display text-[56px] leading-none font-normal uppercase text-text-primary sm:text-[66px]">
           {hero.heading}
         </h1>
-        <p className="max-w-md font-body text-[17px] leading-snug text-text-primary">
+        <p className="max-w-md font-body-fallback text-[17px] leading-[1.2] text-text-primary">
           {hero.subheading}
         </p>
         <a
           href={hero.cta.href}
           target="_blank"
           rel="noreferrer"
-          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-label text-xs font-medium uppercase tracking-wide text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
+          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
         >
           {hero.cta.label}
         </a>
@@ -51,7 +51,7 @@ export function HeroAnimated({ hero }: { hero: HeroContent }) {
       <motion.div
         animate={{ y: [0, 6, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 font-label text-xs uppercase tracking-wide text-brand-orange"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 font-body-fallback text-sm leading-[1.3] text-brand-orange"
       >
         {hero.scrollHint}
       </motion.div>

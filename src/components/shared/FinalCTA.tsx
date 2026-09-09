@@ -19,15 +19,15 @@ export async function FinalCTA() {
       </div>
 
       <Reveal className="relative z-10 mx-auto flex max-w-xl flex-col items-center gap-6">
-        <h2 className="font-display text-[36px] italic leading-tight text-text-primary uppercase">
+        <h2 className="font-display text-[28px] leading-[1.1] tracking-[-0.84px] text-text-primary sm:text-[36px] sm:tracking-[-1.08px]">
           {cta.heading}
         </h2>
-        <p className="font-body text-sm leading-relaxed text-text-gray-light">{cta.body}</p>
+        <p className="font-body-fallback text-base leading-[1.2] text-text-primary">{cta.body}</p>
         <a
           href={cta.cta.href}
           target="_blank"
           rel="noreferrer"
-          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-label text-xs font-medium uppercase tracking-wide text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
+          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
         >
           {cta.cta.label}
         </a>
