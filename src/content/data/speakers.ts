@@ -5,6 +5,9 @@ import type { Speaker } from "../schemas/speaker";
 // Several slugs contain a leading U+2060 (word-joiner) character — preserved
 // here exactly as extracted so /highlighted-speakers-blog/{slug} links match
 // the live site's own (broken-looking but real) URLs.
+// Bios are verbatim from each speaker's live detail page; five speakers
+// (the two founders + 3 others) genuinely have no bio paragraph on the live
+// site — replicated as empty, not a missing-data bug.
 export const speakers: Speaker[] = [
   {
     id: 'rozzah',
@@ -12,6 +15,7 @@ export const speakers: Speaker[] = [
     name: 'Rozzah',
     followers: '13.9M Followers',
     portrait: '/assets/speakers/rozzah.png',
+    bio: 'In Rozzah’s world, identity is always in motion. Through fashion, beauty, and character-driven storytelling, her videos explore the many ways femininity can evolve, adapt, and inspire. Each transformation feels like both a performance and a mirror, offering her audience a quiet sense of belonging while sparking the courage to grow into their own.',
     order: 0,
   },
   {
@@ -20,6 +24,7 @@ export const speakers: Speaker[] = [
     name: 'Saba Sham\'a',
     followers: '12M Followers',
     portrait: '/assets/speakers/sabasham-a.png',
+    bio: 'Saba Shamaa is a multi-talented content creator known for her entertaining and relatable content across food, beauty, fashion, and lifestyle. She has completed her degree as a chef at the Royal Academy of Culinary Arts, which has helped her build a credible presence in food content while continuing to grow across multiple creative categories. With 13M+ followers across platforms, Saba has built a loyal and trusted community that comments with her through her humor and authenticity.',
     order: 1,
   },
   {
@@ -28,6 +33,7 @@ export const speakers: Speaker[] = [
     name: 'Abdullah Tahhan',
     followers: '12M Followers',
     portrait: '/assets/speakers/abdullah-tahhan.png',
+    bio: 'Tahhan is a 24 year old Jordanian content creator, after achieving high success on TikTok and YouTube, Tahhan is venturing through other creative funnels and pushing the boundaries.',
     order: 2,
   },
   {
@@ -36,6 +42,7 @@ export const speakers: Speaker[] = [
     name: 'LifeAsSara',
     followers: '7.2M Followers',
     portrait: '/assets/speakers/lifeassara.png',
+    bio: 'Content has always been my way of capturing life. I share beauty, lifestyle, and real moments through creative storytelling with a focus on making every video feel genuine, engaging and memorable.',
     order: 3,
   },
   {
@@ -44,6 +51,7 @@ export const speakers: Speaker[] = [
     name: '⁠Shashtri Twins',
     followers: '6M Followers',
     portrait: '/assets/speakers/shashtri-twins.png',
+    bio: 'The Shashtari Twins are a fun and creative content creator duo who love turning ideas into entertaining and engaging content. They can create content for a wide range of industries while keeping it authentic and relatable. With experience in business and management, they understand how to create content that connects with audiences and helps brands achieve their goals.',
     order: 4,
   },
   {
@@ -52,6 +60,7 @@ export const speakers: Speaker[] = [
     name: 'Omar Aburob',
     followers: '5.8M Followers',
     portrait: '/assets/speakers/omar-aburob.png',
+    bio: 'Omar isn’t just a digital storyteller, he’s a philosopher of the everyday. His documentary-style videos peel back the surface of society, pop culture, and belief systems, exposing the patterns most people miss. On screen, he builds narrative bridges between skepticism and curiosity, transforming fleeting trends into timeless reflections that educate as much as they provoke.',
     order: 5,
   },
   {
@@ -60,6 +69,7 @@ export const speakers: Speaker[] = [
     name: '⁠Yazan Abu ajweh',
     followers: '5.4M Followers',
     portrait: '/assets/speakers/yazan-abu-ajweh.png',
+    bio: 'I make travel content, but in a more comedic way, and with this content I made a success of 2.7M in a year and a half',
     order: 6,
   },
   {
@@ -68,6 +78,7 @@ export const speakers: Speaker[] = [
     name: 'Moh Nabil',
     followers: '2.8M Followers',
     portrait: '/assets/speakers/moh-nabil.png',
+    bio: 'I’m Mohammed Nabil, an adventure creator documenting experiences around the world,my goal is to inspire people to push beyond their limits through real stories and real challenges.',
     order: 7,
   },
   {
@@ -76,6 +87,7 @@ export const speakers: Speaker[] = [
     name: 'Dolly Dib',
     followers: '1.9M Followers',
     portrait: '/assets/speakers/dolly-dib.png',
+    bio: 'Dolly Dib is a travel content creator with 1.9M followers across platforms. Known for her captivating storytelling and cinematic visuals, she encourages her audience to see the world and themselves with fresh eyes. Dolly aims to inspire people to step out of the house, because she believes in travel as a transformative experience.',
     order: 8,
   },
   {
@@ -84,6 +96,7 @@ export const speakers: Speaker[] = [
     name: 'Raghad Alzamil',
     followers: '1.6M Followers',
     portrait: '/assets/speakers/raghad-alzamil.png',
+    bio: 'an award winning AI / marketing strategist, entrepreneur, and content creator who has transformed millions of views into measurable business impact. Recognized internationally for her work at the intersection of marketing, AI, and digital innovation, she’s here to share the strategies shaping the future of modern brands.',
     order: 9,
   },
   {
@@ -92,6 +105,7 @@ export const speakers: Speaker[] = [
     name: 'Chef Taimor Mouag',
     followers: '1.6M Followers',
     portrait: '/assets/speakers/chef-taimor-mouag.png',
+    bio: '',
     order: 10,
   },
   {
@@ -100,6 +114,7 @@ export const speakers: Speaker[] = [
     name: '⁠Hakam',
     followers: '1.3M Followers',
     portrait: '/assets/speakers/hakam.png',
+    bio: 'Hakam Kiki is an AI specialist,content creator, and educator known for creating AI-powered stories that have reached hundreds of millions of viewers worldwide. Through his content, workshops, and collaborations, he helps creators and brands use AI to produce cinematic content with global reach.',
     order: 11,
   },
   {
@@ -108,6 +123,7 @@ export const speakers: Speaker[] = [
     name: '⁠Ammar Najjar',
     followers: '1M Followers',
     portrait: '/assets/speakers/ammar-najjar.png',
+    bio: '',
     order: 12,
   },
   {
@@ -116,6 +132,7 @@ export const speakers: Speaker[] = [
     name: 'Chef Ali ghzawi',
     followers: '963K Followers',
     portrait: '/assets/speakers/chef-ali-ghzawi.png',
+    bio: 'Chef Patron of Alee restaurant -  winner of Top Chef MENA',
     order: 13,
   },
   {
@@ -124,6 +141,7 @@ export const speakers: Speaker[] = [
     name: 'Feed Mureed',
     followers: '944k Followers',
     portrait: '/assets/speakers/mureed.png',
+    bio: 'FeedMureed is a prominent Jordanian content creator known for his authentic, everyday lifestyle videos, which heavily feature his family, local outings, and life storytelling. He has amassed his following across Instagram, TikTok, and other platforms by remaining relatable and documenting his genuine, day-to-day experiences. His content stands out for its strong emphasis on personal branding and raw human connection, rather than highly polished, high-budget productions. By sharing simple, everyday moments with his wife and family, he has built a loyal, engaged audience.',
     order: 14,
   },
   {
@@ -132,6 +150,7 @@ export const speakers: Speaker[] = [
     name: 'Alia Faris',
     followers: '460K Followers',
     portrait: '/assets/speakers/alia-faris.png',
+    bio: '',
     order: 15,
   },
   {
@@ -140,6 +159,7 @@ export const speakers: Speaker[] = [
     name: '⁠Dr Mohamad Laban',
     followers: '287K Followers',
     portrait: '/assets/speakers/dr-mohamad-laban.png',
+    bio: 'ENT & Facial Aesthetic Surgeon | Rhinoplasty, Botox, Fillers, Sculptra Expert | جراحة وتجميل الانف والاذن والحنجره والرأس والعنق .',
     order: 16,
   },
   {
@@ -148,6 +168,7 @@ export const speakers: Speaker[] = [
     name: 'Noorzi',
     followers: '181K Followers',
     portrait: '/assets/speakers/noorzi.png',
+    bio: 'In Amman’s expanding creative landscape, Noorzi stands apart for her refusal to curate herself into someone she isn’t. At 24, the Jordanian creator has gathered a loyal community around something rare in the region’s polished digital world: a sense of human, unhurried authenticity. Blending humour, lifestyle, and small moments of introspection, she is part of a new generation of Arab creatives rewriting the tone of life online.',
     order: 17,
   },
   {
@@ -156,6 +177,7 @@ export const speakers: Speaker[] = [
     name: 'Mahmoud Abuqalbain',
     followers: '178K Followers',
     portrait: '/assets/speakers/mahmoud-abuqalbain.png',
+    bio: 'Mahmoud Abuqalbain is a Strategy Senior Manager at Accenture, focused on Smart Cities and Capital Projects, and Head of Communications for Accenture\'s Riyadh Center of Excellence. With BSc and MSc degrees in Civil Engineering, he began his career in construction with firms including Gilbane and Granger Construction before moving into consulting at PwC Middle East, where he advised on government transformation and large-scale infrastructure initiatives. Beyond consulting, Mahmoud is a digital creator known for sharp, culturally grounded commentary that has earned him a strong following across the MENA region and Arab diaspora. He founded Modern Lens Production and Mawtini Dabkeh Troupe, and was named an Arab America Foundation 40 Under 40 awardee in 2020 for his impact across engineering, entrepreneurship, culture, and community leadership.',
     order: 18,
   },
   {
@@ -164,6 +186,7 @@ export const speakers: Speaker[] = [
     name: '⁠Dalia Abughosh',
     followers: '112K Followers',
     portrait: '/assets/speakers/dalia-abughosh.png',
+    bio: 'Dalia Abu Ghoush is a developer, entrepreneur, and AI educator passionate about making technology accessible and practical. As the founder of Elli Creators, she is building a platform that connects brands with creators through authentic user generated content. Alongside her work as a founder, Dalia creates educational content on AI, software development, cybersecurity, and emerging technologies, reaching thousands of people across the Middle East. Through her talks, workshops, and online content, she inspires developers, founders, creators, and students to embrace innovation and build with confidence.',
     order: 19,
   },
   {
@@ -172,6 +195,7 @@ export const speakers: Speaker[] = [
     name: '⁠Ala’a Sumrian',
     followers: '97K Followers',
     portrait: '/assets/speakers/ala’a-sumrian.png',
+    bio: 'I\'m an entrepreneur and content creator working at the intersection of AI, education, and regional access. My current flagship work is TawjihiAI (AI-powered study platform for Tawjihi students), but my broader focus is building technology with real local impact.',
     order: 20,
   },
   {
@@ -180,6 +204,7 @@ export const speakers: Speaker[] = [
     name: 'Mohy Noor',
     followers: '50K Followers',
     portrait: '/assets/speakers/mohy-noor.png',
+    bio: 'The guy with a duck  a creative force who connects influencers, brands, and big ideas into moments. Always smiling, always solving, and always in the middle of the action, he turns good vibes into powerful campaigns.',
     order: 21,
   },
   {
@@ -188,6 +213,7 @@ export const speakers: Speaker[] = [
     name: '⁠Saif Khuffash',
     followers: '42K Followers',
     portrait: '/assets/speakers/saif-khuffash.png',
+    bio: 'Saif Khuffash is a Marketing Strategist with over 10 years of experience, helping brands grow through social media, content marketing, influencer partnerships, and creator-led campaigns. Since 2014, he has worked with leading brands across Jordan and the MENA region, bridging the gap between businesses and content creators to build impactful collaborations. His experience spans offline marketing, digital strategy, influencer marketing, UGC, and integrated campaigns that deliver measurable business results.',
     order: 22,
   },
   {
@@ -196,6 +222,7 @@ export const speakers: Speaker[] = [
     name: '⁠Omar Abo abood',
     followers: '15K Followers',
     portrait: '/assets/speakers/omar-aboabood.png',
+    bio: 'Omar Aboaboud is a Senior Talent Partnerships Manager at NO CAP, specializing in creator marketing, talent management, and strategic brand partnerships across the MENA region. He leads collaborations between leading brands, agencies, and creators, developing campaigns that combine authentic storytelling with measurable business impact. Passionate about the creator economy, Omar focuses on building long-term partnerships, scaling talent, and helping brands connect with audiences through meaningful, creator-first strategies.',
     order: 23,
   },
   {
@@ -204,6 +231,7 @@ export const speakers: Speaker[] = [
     name: 'Issa Fakhouri',
     followers: '10k Followers',
     portrait: '/assets/speakers/issa-fakhouri.png',
+    bio: 'Issa Fakhouri is the Co-founder and Managing Director of NO CAP, a creator-first agency connecting brands with the Middle East\'s leading creators and celebrities. Before founding NO CAP, he led creator and gaming partnerships at TikTok, working with brands and creators across the MENA region. Today, he\'s passionate about building the creator economy, helping brands create campaigns people actually want to watch, and turning creators into long-term businesses.',
     order: 24,
   },
   {
@@ -212,6 +240,7 @@ export const speakers: Speaker[] = [
     name: 'Tamara Al Ali',
     followers: '5k Followers',
     portrait: '/assets/speakers/tamara-al-ali.png',
+    bio: 'Tamara is one of the founders of TooT4, a creator platform that has powered some of the biggest campaigns in MENA. She also works as a talent manager for some of the region\'s leading content creators and talents, helping them grow their audiences, land brand partnerships, and turn their content into real businesses. Between the platform and the talent side, she operates at the center of MENA\'s creator economy.',
     order: 25,
   },
   {
@@ -220,6 +249,7 @@ export const speakers: Speaker[] = [
     name: 'Nour Khabbaz',
     followers: '3.6k Followers',
     portrait: '/assets/speakers/nour-khabbaz.png',
+    bio: 'A creator partnerships and influencer marketing professional with 5+ years of experience across the MENA region. Led campaigns and strategic collaborations connecting brands with some of the region’s leading creators.',
     order: 26,
   },
   {
@@ -228,6 +258,7 @@ export const speakers: Speaker[] = [
     name: 'Sara Al Refai',
     followers: '432K',
     portrait: '/assets/speakers/sara-al-refai.png',
+    bio: 'Architect turned marketer turned media executive. Sara leads Edraak Media, founded Coconut Media Inc. and Dawrati, hosts The Secrets of Marketing podcast, and has trained over 10,000 students across the Middle East. She has done more things well than most people attempt in a lifetime — and she’s still adding to the list.',
     order: 27,
   },
   {
@@ -236,6 +267,7 @@ export const speakers: Speaker[] = [
     name: 'khaled Shammout',
     followers: '3k',
     portrait: '/assets/speakers/khaled-shammout.png',
+    bio: 'Hospitality, marketing, media, business, Khaled has moved across all of it and taken one thing from each: the ability to connect the right people to the right ideas at the right time. He’s the force behind The Creators Firm, and the reason things that sound impossible end up happening.',
     order: 28,
   },
   {
@@ -244,6 +276,7 @@ export const speakers: Speaker[] = [
     name: 'Nour Maraqa',
     followers: '1K',
     portrait: '/assets/speakers/nour-maraqa.png',
+    bio: 'The voice behind The K-cast Arabia, the region’s go-to podcast on Korean dramas and cinema. Nour built a dedicated audience by going deep on a world most people only watch from the outside, and made it feel like a conversation you actually want to be part of.',
     order: 29,
   },
   {
@@ -252,6 +285,7 @@ export const speakers: Speaker[] = [
     name: 'mohanad syoof',
     followers: '1.6M',
     portrait: '/assets/speakers/mohanad-syoof.png',
+    bio: '1.6M on Instagram. 6M+ on YouTube. Mohanad built one of the biggest Arabic storytelling channels in the region from a wheelchair, covering everything from the FIFA World Cup to the streets of his city. He doesn’t just tell stories — he finds the ones nobody else thought to look for.',
     order: 30,
   },
   {
@@ -260,6 +294,7 @@ export const speakers: Speaker[] = [
     name: 'Yousef Salem',
     followers: '15.6',
     portrait: '/assets/speakers/yousef-salem.png',
+    bio: 'Professor by day, brand builder by everything else. Yousef runs The Content Factory and has quietly built the personal brands behind some of Jordan’s biggest business names. The kind of person who’s always first to arrive and last to take credit.',
     order: 31,
   },
   {
@@ -268,6 +303,7 @@ export const speakers: Speaker[] = [
     name: 'Abdullah Absi',
     followers: '54.1k',
     portrait: '/assets/speakers/abdullah-absi.png',
+    bio: 'Entrepreneur, founder of LocalMinds, and co-founder of Kitchefy, Abdullah built his audience by sharing the unglamorous reality of building companies from the ground up. 54K followers watching someone actually do it, not just talk about it. His content sits at the intersection of business and real life, and that’s exactly where it lands.',
     order: 32,
   },
   {
@@ -276,6 +312,7 @@ export const speakers: Speaker[] = [
     name: 'Yazan Abuajweh',
     followers: '2.7M',
     portrait: '/assets/speakers/yazan-abuajweh.png',
+    bio: 'Jordanian comedy creator and award-winning digital storyteller. Yazan won Best Comedy Content Creator at the Caravan Stars and built his audience on travel content that doesn’t take itself too seriously, sharp observations, real moments, and the kind of humour that travels as well as he does.',
     order: 33,
   },
   {
@@ -284,6 +321,7 @@ export const speakers: Speaker[] = [
     name: 'Nasser & Laila',
     followers: '2.4M',
     portrait: '/assets/speakers/nasser-laila.png',
+    bio: 'They didn’t set out to build an audience, they just filmed their life together. What started as couple content became one of the most-watched relationships in the region: 2M+ followers watching the comedy, the chaos, and the quiet moments of two people figuring it out on camera. Co-founders of red.be.seen, they turned relatability into a business without ever making it feel like one.',
     order: 34,
   },
   {
@@ -292,6 +330,7 @@ export const speakers: Speaker[] = [
     name: 'Awn Nuwwar',
     followers: '',
     portrait: '/assets/speakers/awn-nuwwar.png',
+    bio: '',
     order: 35,
   },
   {
@@ -300,6 +339,7 @@ export const speakers: Speaker[] = [
     name: 'Mohammed Almashhadani',
     followers: '',
     portrait: '/assets/speakers/mohammed-almashhadani.png',
+    bio: '',
     order: 36,
   },
 ];

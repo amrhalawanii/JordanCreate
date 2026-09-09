@@ -10,6 +10,7 @@ export const SpeakerSchema = z.object({
   name: z.string(),
   followers: z.string(),
   portrait: z.string(),
+  bio: z.string(),
   order: z.number(),
 });
 export type Speaker = z.infer<typeof SpeakerSchema>;
