@@ -2,12 +2,29 @@
   "name": "jordan-create-website",
   "version": "0.0.1",
   "private": true,
-  "description": "1:1 forensic rebuild of jordancreate.com — Phase 0 extraction toolkit",
+  "description": "1:1 forensic rebuild of jordancreate.com",
   "scripts": {
-    "extract": "tsx scripts/extract.ts"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "extract": "tsx scripts/extract.ts",
+    "harvest-assets": "tsx scripts/harvest-assets.ts",
+    "faq-extract": "tsx scripts/faq-extract.ts"
+  },
+  "dependencies": {
+    "next": "^15.4.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "playwright": "^1.48.0",
+    "tailwindcss": "^4.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

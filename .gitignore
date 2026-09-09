@@ -4,6 +4,8 @@ node_modules/
 .env.local
 .DS_Store
 npm-debug.log*
+next-env.d.ts
+tsconfig.tsbuildinfo
 
 # Reference extraction is large — keep manifests/docs tracked, but not every raw capture
 reference/screenshots/

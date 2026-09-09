@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Tokens sourced from /design-tokens.json (Phase 0 forensic extraction).
+   Keep this file and design-tokens.json in sync — components should only
+   ever reach for these tokens, never a raw hex/px value. */
+@theme {
+  /* Color */
+  --color-canvas: #0f0f0f;
+  --color-canvas-deep: #0a0a0a;
+  --color-canvas-deeper: #070708;
+  --color-surface: #171717;
+  --color-surface-raised: #1a1a1a;
+  --color-border-card: #303030;
+  --color-border-subtle: #262626;
+
+  --color-text-primary: #ffffff;
+  --color-text-offwhite: #fafafa;
+  --color-text-muted-80: rgba(255, 255, 255, 0.8);
+  --color-text-muted-60: rgba(255, 255, 255, 0.6);
+  --color-text-gray-light: #a3a3a3;
+  --color-text-gray-muted: #858585;
+  --color-text-gray-mid: #666666;
+
+  --color-brand-orange: #ea8f2d;
+  --color-brand-orange-hot: #ff6b00;
+  --color-on-orange: #0f0f0f;
+
+  /* Type — resolved through next/font's own generated variables (see
+     src/app/fonts.ts) so we get font-metric fallbacks and no layout shift,
+     while every component still just reaches for font-display/label/body. */
+  --font-display: var(--font-display-serif), serif;
+  --font-label: var(--font-label-sans), sans-serif;
+  --font-body: var(--font-body-sans), sans-serif;
+  --font-body-fallback: var(--font-body-fallback-sans), sans-serif;
+
+  /* Container */
+  --container-primary: 1128px;
+  --container-wide: 1184px;
+
+  /* Radii */
+  --radius-default: 4px;
+  --radius-media: 8px;
+  --radius-pill-sm: 20px;
+  --radius-pill-lg: 40px;
+
+  /* Breakpoints — match the live site's own (not Tailwind's defaults) */
+  --breakpoint-tablet: 810px;
+  --breakpoint-desktop: 1200px;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), var(--font-body-fallback);
+}

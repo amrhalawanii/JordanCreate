@@ -1,0 +1,40 @@
+import type { NavItem, SiteSettings } from "../schemas/nav";
+
+// Desktop nav. "AGENDA" and "Speakers" both point to /speakers on the live
+// site — a known quirk, replicated deliberately (see FIDELITY-NOTES.md).
+export const desktopNavItems: NavItem[] = [
+  { id: "home", label: "Home", href: "/", order: 0 },
+  { id: "agenda", label: "AGENDA", href: "/speakers", order: 1 },
+  { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
+  { id: "partner", label: "Partner with Us", href: "/partner-with-us", order: 3 },
+  { id: "about", label: "About Us", href: "/about-us", order: 4 },
+];
+
+// Mobile overlay menu — note the live site labels this item "For Partners"
+// here even though the desktop nav and footer both say "Partner with Us" /
+// "Partner With Us" for the same link. Replicated deliberately.
+export const mobileNavItems: NavItem[] = [
+  { id: "home", label: "Home", href: "/", order: 0 },
+  { id: "agenda", label: "AGENDA", href: "/speakers", order: 1 },
+  { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
+  { id: "partner", label: "For Partners", href: "/partner-with-us", order: 3 },
+  { id: "about", label: "About Us", href: "/about-us", order: 4 },
+  { id: "contact", label: "Contact Us", href: "/404", order: 5 },
+];
+
+// Footer nav. "Contact Us" links to /404 on the live site — replicated
+// deliberately (see FIDELITY-NOTES.md).
+export const footerNavItems: NavItem[] = [
+  { id: "home", label: "Home", href: "/", order: 0 },
+  { id: "community", label: "Community", href: "/speakers", order: 1 },
+  { id: "partner", label: "Partner With Us", href: "/partner-with-us", order: 2 },
+  { id: "about", label: "About Us", href: "/about-us", order: 3 },
+  { id: "contact", label: "Contact Us", href: "/404", order: 4 },
+];
+
+export const siteSettings: SiteSettings = {
+  siteName: "Jordan Create",
+  tagline: "A collision of art, sound & bold ideas.",
+  instagramUrl: "https://www.instagram.com/jordancreateofficial/",
+  contactCta: { label: "Contact us", href: "https://tally.so/r/kdK1Lj" },
+};
