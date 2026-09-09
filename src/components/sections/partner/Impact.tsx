@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getImpactItems, getPartnerImpact } from "@/content/repository";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function Impact() {
   const [items, copy] = await Promise.all([getImpactItems(), getPartnerImpact()]);
@@ -7,13 +8,15 @@ export async function Impact() {
   return (
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
-        <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
-          {copy.eyebrow}
-        </p>
-        <h2 className="mt-3 max-w-xl font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
-          {copy.heading}
-        </h2>
-        <p className="mt-3 max-w-lg font-body text-sm text-text-gray-light">{copy.sub}</p>
+        <Reveal>
+          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
+            {copy.eyebrow}
+          </p>
+          <h2 className="mt-3 max-w-xl font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+            {copy.heading}
+          </h2>
+          <p className="mt-3 max-w-lg font-body text-sm text-text-gray-light">{copy.sub}</p>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
           <div className="relative aspect-video w-full overflow-hidden rounded-(--radius-media) bg-surface">

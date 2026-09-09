@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getFinalCta } from "@/content/repository";
+import { Reveal } from "./Reveal";
 
 export async function FinalCTA() {
   const cta = await getFinalCta();
@@ -17,7 +18,7 @@ export async function FinalCTA() {
         <div className="absolute inset-0 bg-gradient-to-t from-canvas-deep via-canvas-deep/70 to-canvas-deep/40" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center gap-6">
+      <Reveal className="relative z-10 mx-auto flex max-w-xl flex-col items-center gap-6">
         <h2 className="font-display text-[36px] italic leading-tight text-text-primary uppercase">
           {cta.heading}
         </h2>
@@ -30,7 +31,7 @@ export async function FinalCTA() {
         >
           {cta.cta.label}
         </a>
-      </div>
+      </Reveal>
     </section>
   );
 }

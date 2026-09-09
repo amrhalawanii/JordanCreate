@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSpeakers, getFeaturedSpeakerSlugs } from "@/content/repository";
 import { SpeakerCard } from "@/components/shared/SpeakerCard";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function SpeakersStrip() {
   const [allSpeakers, featuredSlugs] = await Promise.all([
@@ -15,7 +16,7 @@ export async function SpeakersStrip() {
   return (
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
               Speakers
@@ -34,7 +35,7 @@ export async function SpeakersStrip() {
           >
             View All Speakers
           </Link>
-        </div>
+        </Reveal>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {featured.map((speaker) => (

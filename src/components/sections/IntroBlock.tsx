@@ -1,11 +1,12 @@
 import { getIntroBlock } from "@/content/repository";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function IntroBlock() {
   const intro = await getIntroBlock();
 
   return (
     <section className="bg-canvas px-5 py-16 md:px-10">
-      <div className="mx-auto flex max-w-(--container-primary) flex-col items-center gap-6 text-center">
+      <Reveal className="mx-auto flex max-w-(--container-primary) flex-col items-center gap-6 text-center">
         <h2 className="max-w-2xl font-display text-[28px] italic leading-tight text-text-primary sm:text-[36px]">
           {intro.heading}
         </h2>
@@ -24,7 +25,7 @@ export async function IntroBlock() {
         >
           {intro.cta.label}
         </a>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTeamMembers, getMeetTheCrewIntro } from "@/content/repository";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function MeetTheCrew() {
   const [team, intro] = await Promise.all([getTeamMembers(), getMeetTheCrewIntro()]);
@@ -7,13 +8,15 @@ export async function MeetTheCrew() {
   return (
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
-        <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
-          {intro.eyebrow}
-        </p>
-        <h2 className="mt-3 max-w-lg font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
-          {intro.heading}
-        </h2>
-        <p className="mt-3 max-w-md font-body text-sm text-text-gray-light">{intro.sub}</p>
+        <Reveal>
+          <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
+            {intro.eyebrow}
+          </p>
+          <h2 className="mt-3 max-w-lg font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+            {intro.heading}
+          </h2>
+          <p className="mt-3 max-w-md font-body text-sm text-text-gray-light">{intro.sub}</p>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {team.map((member) => (

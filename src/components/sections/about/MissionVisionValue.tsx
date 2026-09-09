@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getMissionVisionValue } from "@/content/repository";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function MissionVisionValue() {
   const blocks = await getMissionVisionValue();
@@ -14,10 +15,10 @@ export async function MissionVisionValue() {
               i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius-media) bg-surface">
+            <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius-media) bg-surface">
               <Image src={b.image} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-            </div>
-            <div>
+            </Reveal>
+            <Reveal delay={0.1}>
               <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
                 {b.heading}
               </p>
@@ -32,7 +33,7 @@ export async function MissionVisionValue() {
               >
                 {b.cta.label}
               </a>
-            </div>
+            </Reveal>
           </div>
         ))}
       </div>

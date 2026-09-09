@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getOurStory } from "@/content/repository";
+import { Reveal } from "@/components/shared/Reveal";
 
 export async function OurStory() {
   const story = await getOurStory();
@@ -7,10 +8,10 @@ export async function OurStory() {
   return (
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto grid max-w-(--container-primary) grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius-media) bg-surface">
+        <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-(--radius-media) bg-surface">
           <Image src={story.image} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={0.1}>
           <p className="font-label text-xs uppercase tracking-wide text-brand-orange">
             {story.eyebrow}
           </p>
@@ -29,7 +30,7 @@ export async function OurStory() {
           >
             {story.cta.label}
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

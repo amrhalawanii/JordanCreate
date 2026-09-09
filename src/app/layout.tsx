@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { display, dmSans, hostGrotesk, inter } from "./fonts";
 import { JsonLd } from "@/components/shared/JsonLd";
+import { SmoothScrollProvider } from "@/components/shared/SmoothScrollProvider";
 import "./globals.css";
 
 const description =
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${dmSans.variable} ${hostGrotesk.variable} ${inter.variable}`}>
       <body>
         <JsonLd />
+        <SmoothScrollProvider />
         {children}
       </body>
     </html>
