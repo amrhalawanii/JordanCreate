@@ -9,8 +9,34 @@ import * as apiAdapter from "./adapters/api";
 
 const adapter = process.env.CONTENT_SOURCE === "api" ? apiAdapter : staticAdapter;
 
-export const getDesktopNavItems = adapter.getDesktopNavItems;
-export const getMobileNavItems = adapter.getMobileNavItems;
-export const getFooterNavItems = adapter.getFooterNavItems;
-export const getSiteSettings = adapter.getSiteSettings;
-export const getHomeHero = adapter.getHomeHero;
+export const {
+  getDesktopNavItems,
+  getMobileNavItems,
+  getFooterNavItems,
+  getSiteSettings,
+  getHomeHero,
+  getSpeakers,
+  getSpeakerBySlug,
+  getFeaturedSpeakerSlugs,
+  getTeamMembers,
+  getFAQEntries,
+  getPillars,
+  getHomeStats,
+  getReachStats,
+  getGalleryImages,
+  getPartnerBenefits,
+  getImpactItems,
+  getInfoTabs,
+  getSpeakersHero,
+  getPartnerHero,
+  getAboutHero,
+  getIntroBlock,
+  getFinalCta,
+  getOurStory,
+  getMissionVisionValue,
+  getMeetTheCrewIntro,
+  getWhoYoureReaching,
+  getWhatPartnersGet,
+  getPartnerImpact,
+  getNotFoundContent,
+} = adapter;

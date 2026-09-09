@@ -5,31 +5,79 @@
  * endpoint exists. Kept in the same shape as static.ts so swapping adapters
  * never requires a component change.
  */
-import type { NavItem, SiteSettings } from "../schemas/nav";
-import type { HeroContent } from "../schemas/hero";
-
 function notImplemented(name: string): never {
   throw new Error(
     `content/adapters/api: ${name}() is not implemented yet. Set CONTENT_SOURCE=static until an admin API exists.`
   );
 }
 
-export async function getDesktopNavItems(): Promise<NavItem[]> {
-  notImplemented("getDesktopNavItems");
+const names = [
+  "getDesktopNavItems",
+  "getMobileNavItems",
+  "getFooterNavItems",
+  "getSiteSettings",
+  "getHomeHero",
+  "getSpeakers",
+  "getSpeakerBySlug",
+  "getFeaturedSpeakerSlugs",
+  "getTeamMembers",
+  "getFAQEntries",
+  "getPillars",
+  "getHomeStats",
+  "getReachStats",
+  "getGalleryImages",
+  "getPartnerBenefits",
+  "getImpactItems",
+  "getInfoTabs",
+  "getSpeakersHero",
+  "getPartnerHero",
+  "getAboutHero",
+  "getIntroBlock",
+  "getFinalCta",
+  "getOurStory",
+  "getMissionVisionValue",
+  "getMeetTheCrewIntro",
+  "getWhoYoureReaching",
+  "getWhatPartnersGet",
+  "getPartnerImpact",
+  "getNotFoundContent",
+] as const;
+
+type Fns = Record<(typeof names)[number], (...args: unknown[]) => Promise<never>>;
+
+const impl = {} as Fns;
+for (const name of names) {
+  impl[name] = async () => notImplemented(name);
 }
 
-export async function getMobileNavItems(): Promise<NavItem[]> {
-  notImplemented("getMobileNavItems");
-}
-
-export async function getFooterNavItems(): Promise<NavItem[]> {
-  notImplemented("getFooterNavItems");
-}
-
-export async function getSiteSettings(): Promise<SiteSettings> {
-  notImplemented("getSiteSettings");
-}
-
-export async function getHomeHero(): Promise<HeroContent> {
-  notImplemented("getHomeHero");
-}
+export const {
+  getDesktopNavItems,
+  getMobileNavItems,
+  getFooterNavItems,
+  getSiteSettings,
+  getHomeHero,
+  getSpeakers,
+  getSpeakerBySlug,
+  getFeaturedSpeakerSlugs,
+  getTeamMembers,
+  getFAQEntries,
+  getPillars,
+  getHomeStats,
+  getReachStats,
+  getGalleryImages,
+  getPartnerBenefits,
+  getImpactItems,
+  getInfoTabs,
+  getSpeakersHero,
+  getPartnerHero,
+  getAboutHero,
+  getIntroBlock,
+  getFinalCta,
+  getOurStory,
+  getMissionVisionValue,
+  getMeetTheCrewIntro,
+  getWhoYoureReaching,
+  getWhatPartnersGet,
+  getPartnerImpact,
+  getNotFoundContent,
+} = impl;

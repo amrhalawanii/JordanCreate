@@ -1,0 +1,83 @@
+import type { CTA } from "../schemas/nav";
+
+// Home page intro block ("One of the largest Creator Economy events").
+export const introBlock = {
+  heading: "One of the largest Creator Economy events",
+  paras: [
+    "Jordan Create brings together content creators, artists, musicians, marketers, brands, and platforms into one experience focused on learning, networking, and collaboration. It takes place annually in Jordan, and it exists because Jordan's creative people never had one place to come together.",
+    "Jordan Create is that place.",
+  ],
+  cta: { label: "Count Me In", href: "https://tally.so/r/2EyNej" } satisfies CTA,
+};
+
+// Shared "Don't hear about it. Be in the room." CTA band, reused on every page.
+export const finalCta = {
+  heading: "Don't hear about it. Be in the room.",
+  body: "Last year, people left saying it changed how they think about creating. The biggest creators in the region were in that room. This year will be bigger, louder, and harder to get into.",
+  cta: { label: "Count Me In", href: "https://tally.so/r/kdK1Lj" } satisfies CTA,
+  backgroundImage: "/assets/cta/room-background.png",
+};
+
+// About Us — "Our story"
+export const ourStory = {
+  eyebrow: "OUR STORY",
+  eyebrowSecondary: "JORDAN CREATE 2025",
+  body: "Creators, agencies, and brands were operating in parallel universes. No central hub. Visibility without access. Energy without continuity. Jordan Create changed that.",
+  closingLine: "Jordan's creative community finally had a home",
+  cta: { label: "MORE ABOUT US", href: "https://tally.so/r/kdK1Lj" } satisfies CTA,
+  image: "/assets/about/our-story.jpg",
+};
+
+// About Us — Mission / Vision / Value
+export const missionVisionValue = [
+  {
+    id: "mission",
+    heading: "MISSION",
+    body: "Jordan Create is a platform built to help creative people get better at what they do. We gather the best minds from creators and marketers to business owners to share what works, collaborate, and expand their networks.",
+  },
+  {
+    id: "vision",
+    heading: "VISION",
+    body: "We are more than a talk or a panel. We are an experience where you get the inspiration, the education, the opportunities, and the connections you need to take your work to the next level.",
+  },
+  {
+    id: "value",
+    heading: "VALUE",
+    body: "Jordan Create is the home of Jordan's creative community the place where creators, marketers, business owners, and tech leaders meet to turn big ideas into reality. This is where the next big projects, partnerships, and trends start.",
+  },
+].map((b) => ({ ...b, cta: { label: "Join Us", href: "https://tally.so/r/kdK1Lj" } satisfies CTA, image: "/assets/about/mission-vision-value.jpg" }));
+
+// About Us — team section intro copy
+export const meetTheCrewIntro = {
+  eyebrow: "JORDAN CREATE TEAM",
+  heading: "MEET THE CREW",
+  sub: "The people behind the event, the community, and everything in between. We're a small team that builds big rooms.",
+};
+
+// Partner with us — "WHO YOU'RE REACHING"
+export const whoYoureReaching = {
+  eyebrow: "WHO YOU'RE REACHING",
+  heading: "YOUR BRAND. THEIR WORLD",
+};
+
+// Partner with us — "WHAT PARTNERS GET"
+export const whatPartnersGet = {
+  eyebrow: "WHAT PARTNERS GET",
+  headingLine1: "NOT A PACKAGE A PLATFORM",
+  headingLine2: "BE PART OF THE MOVEMENT",
+};
+
+// Partner with us — "IMPACT"
+export const partnerImpact = {
+  eyebrow: "IMPACT",
+  heading: "THE LARGEST CREATORS AUDIENCE IN JORDAN",
+  sub: "Direct access to 350+ creators, marketers, and brands, plus a community that stays active year-round.",
+  video: "/assets/partners/impact-loop.mp4",
+};
+
+// 404 page
+export const notFoundContent = {
+  heading: "PAGE IS LOCKED",
+  sub: "SEE YOU IN NOVEMBER!",
+  cta: { label: "RETURN HOME", href: "/" } satisfies CTA,
+};

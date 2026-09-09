@@ -1,0 +1,65 @@
+{
+  "cards": [
+    {
+      "title": "Strong Presence",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    },
+    {
+      "title": "Creator Content",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    },
+    {
+      "title": "Brand Activiations",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    },
+    {
+      "title": "Digital Visibility",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    },
+    {
+      "title": "Digital Access",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    },
+    {
+      "title": "Exclusive Community",
+      "found": true,
+      "body": "",
+      "imgSrc": null
+    }
+  ],
+  "impact": [
+    {
+      "title": "First of Its Kind",
+      "found": true,
+      "body": ""
+    },
+    {
+      "title": "1,000+ From the Creative Ecosystem",
+      "found": true,
+      "body": ""
+    },
+    {
+      "title": "A Movement, Not a Moment",
+      "found": true,
+      "body": ""
+    },
+    {
+      "title": "Activations, Not Just Panels",
+      "found": true,
+      "body": ""
+    }
+  ],
+  "videos": [
+    "https://framerusercontent.com/assets/wpL6fYvcEBKngyEbpiCumQ4If98.mp4"
+  ]
+}
