@@ -1,0 +1,14 @@
+{
+  "name": "jordan-create-website",
+  "version": "0.0.1",
+  "private": true,
+  "description": "1:1 forensic rebuild of jordancreate.com — Phase 0 extraction toolkit",
+  "scripts": {
+    "extract": "tsx scripts/extract.ts"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

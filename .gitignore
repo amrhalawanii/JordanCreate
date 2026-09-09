@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env
+.env.local
+.DS_Store
+npm-debug.log*
+
+# Reference extraction is large — keep manifests/docs tracked, but not every raw capture
+reference/screenshots/
+reference/dom/
+reference/assets-original/
