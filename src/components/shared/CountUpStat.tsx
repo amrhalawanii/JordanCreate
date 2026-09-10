@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, animate } from "motion/react";
+import { motion, useInView, animate, useReducedMotion } from "motion/react";
 
 // Parses "350+", "70M+", "15", "3" into a numeric core plus preserved
 // prefix/suffix, animates the number counting up when it scrolls into view,
@@ -11,10 +11,17 @@ export function CountUpStat({ value, className }: { value: string; className?: s
   const match = value.match(/^([^\d]*)(\d+(?:\.\d+)?)(.*)$/);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const [display, setDisplay] = useState(match ? `${match[1]}0${match[3]}` : value);
+  const reduceMotion = useReducedMotion();
+  const [display, setDisplay] = useState(
+    reduceMotion || !match ? value : `${match[1]}0${match[3]}`,
+  );
 
   useEffect(() => {
     if (!match || !inView) return;
+    if (reduceMotion) {
+      setDisplay(value);
+      return;
+    }
     const [, prefix = "", numStr = "0", suffix = ""] = match;
     const target = parseFloat(numStr);
     const decimals = numStr.includes(".") ? (numStr.split(".")[1]?.length ?? 0) : 0;
@@ -27,15 +34,14 @@ export function CountUpStat({ value, className }: { value: string; className?: s
     });
     return () => controls.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
+  }, [inView, reduceMotion]);
 
   if (!match) {
-    // Non-numeric values (e.g. "∞") just fade in.
     return (
       <motion.span
         ref={ref}
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
+        initial={reduceMotion ? false : { opacity: 0 }}
+        animate={inView || reduceMotion ? { opacity: 1 } : {}}
         transition={{ duration: 0.6 }}
         className={className}
       >

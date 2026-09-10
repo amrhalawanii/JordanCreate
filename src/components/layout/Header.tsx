@@ -31,7 +31,7 @@ export async function Header() {
               <li key={item.id}>
                 <Link
                   href={item.href}
-                  className="font-body-fallback text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+                  className="font-body text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
                 >
                   {item.label}
                 </Link>

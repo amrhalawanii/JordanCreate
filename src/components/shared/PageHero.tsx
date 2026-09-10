@@ -37,7 +37,7 @@ export function PageHero({ hero }: { hero: PageHeroType }) {
           {hero.heading}
         </h1>
         {hero.subheading && (
-          <p className="max-w-md font-body-fallback text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
+          <p className="max-w-md font-body text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
             {hero.subheading}
           </p>
         )}

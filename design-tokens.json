@@ -1,71 +1,60 @@
 {
-  "$schema": "phase-0 forensic extraction — see EXTRACTION.md for provenance and open questions",
+  "$schema": "product design tokens — aligned with jordan-create-dsv1 native dark theme",
+  "source": "Jordan-Create-App-V1/artifacts/jordan-create-dsv1 (native-theme.tsx + tokens.json)",
   "color": {
     "background": {
-      "canvas": "#0f0f0f",
-      "deep": "#0a0a0a",
-      "deeper": "#070708",
-      "raisedDark": "#111114",
-      "raised": "#121212",
-      "strongPanel": "#1a1a1a",
-      "surfaceMostCommon": "#171717"
+      "canvas": "#141210",
+      "deep": "#0e0d0c",
+      "deeper": "#0e0d0c",
+      "surface": "#1c1916",
+      "raised": "#241f1b"
     },
     "border": {
-      "cardBorder": "#303030",
-      "subtle": "#262626",
-      "hairline10": "rgba(255,255,255,0.1)",
-      "hairline25": "rgba(255,255,255,0.25)"
+      "cardBorder": "rgba(245,239,230,0.12)",
+      "subtle": "rgba(245,239,230,0.08)",
+      "hairline10": "rgba(245,239,230,0.1)",
+      "hairline25": "rgba(245,239,230,0.25)"
     },
     "text": {
-      "primary": "#ffffff",
-      "offWhite": "#fafafa",
+      "primary": "#f5efe6",
+      "offWhite": "#f5efe6",
       "onOrange": "#0f0f0f",
-      "muted80": "rgba(255,255,255,0.8)",
-      "muted60": "rgba(255,255,255,0.6)",
-      "muted55": "rgba(255,255,255,0.55)",
-      "grayLight": "#a3a3a3",
-      "grayLightAlt": "#a6a6a6",
-      "grayMid": "#999999",
-      "grayMuted": "#858585",
-      "gray666": "#666666"
+      "muted80": "rgba(245,239,230,0.8)",
+      "muted60": "rgba(245,239,230,0.62)",
+      "grayLight": "#b4aaa0",
+      "grayMuted": "#b4aaa0",
+      "grayMid": "#8a8278"
     },
     "brand": {
       "orange": "#ea8f2d",
       "orangeHot": "#ff6b00",
       "orangeRed": "#f3500f",
-      "orangeGlow": "rgba(255,106,0,0.3)"
+      "orangeGlow": "rgba(234,143,45,0.3)",
+      "gradient": "linear-gradient(111deg, #eebc2b 0%, #faac44 1.1538%, #fe7a1f 100%)",
+      "footerGold": "#eeba2b"
     },
     "overlay": {
-      "scrim50": "rgba(0,0,0,0.5)",
-      "transparent": "rgba(0,0,0,0)"
+      "scrim": "rgba(20,18,16,0.62)",
+      "glass": "rgba(26,23,20,0.42)"
     }
   },
   "typography": {
     "families": {
-      "displayRoman": "\"TT Ramillas Trl Variable Roman\", serif",
-      "displayItalic": "\"TT Ramillas Trl Variable Italic\", serif",
-      "displaySecondary": "\"TT Ramillas Trl Regular\", serif",
-      "displayFallbackOpenLicense": "\"Cormorant Garamond\", serif",
-      "label": "\"DM Sans\", sans-serif",
-      "body": "\"Host Grotesk\", sans-serif",
-      "bodyFallback": "Inter, sans-serif",
-      "utility": "Geist, sans-serif"
+      "display": "Georgia, \"Times New Roman\", Times, serif",
+      "label": "Inter, system-ui, sans-serif",
+      "body": "Inter, system-ui, sans-serif",
+      "utility": "Inter, system-ui, sans-serif"
     },
-    "licensing": {
-      "TT Ramillas": "COMMERCIAL — self-hosting rights unconfirmed; see EXTRACTION.md §1. Do not ship to production without resolving."
-    },
+    "note": "Matches mobile nativeTheme.font (Georgia display + Inter UI). Marketing TT Ramillas / DM Sans / Host Grotesk retired for product parity.",
     "scale": {
-      "heroDisplay": { "fontSize": "66px", "lineHeight": "66px", "letterSpacing": "-0.03em", "weight": 400, "case": "uppercase" },
-      "pageDisplay": { "fontSize": "124px", "lineHeight": "168px", "letterSpacing": "-8px", "weight": 400, "case": "uppercase" },
-      "sectionDisplay": { "fontSize": "56px", "lineHeight": "1.1em", "letterSpacing": "-0.03em", "weight": 400, "case": "uppercase" },
-      "compactDisplay": { "fontSize": "36px", "lineHeight": "100%", "letterSpacing": "-0.06em", "weight": 400, "case": "uppercase" },
-      "faqTitle": { "fontSize": "32px", "lineHeight": "1.1em", "letterSpacing": "-0.03em", "weight": 400, "case": "sentence" },
-      "statNumber": { "fontSize": "46px", "lineHeight": "normal", "letterSpacing": "0", "weight": 400, "case": "numeric" },
-      "statLabel": { "fontSize": "24px", "lineHeight": "170%", "letterSpacing": "0", "weight": 400, "case": "title" },
-      "heroBody": { "fontSize": "17px", "lineHeight": "1.2em", "letterSpacing": "0", "weight": 400, "case": "sentence" },
-      "body": { "fontSize": "16px", "lineHeight": "1.2em-1.3em", "letterSpacing": "0", "weight": 400, "case": "sentence" },
-      "label": { "fontSize": "14px", "lineHeight": "1.3em", "letterSpacing": "0", "weight": 500, "case": "uppercase" },
-      "utilitySmall": { "fontSize": "12px", "lineHeight": "1.2em", "letterSpacing": "0", "weight": 400, "case": "context" }
+      "utility": { "fontSize": "11px", "weight": 400, "case": "uppercase" },
+      "label": { "fontSize": "13px", "weight": 500 },
+      "body": { "fontSize": "16px", "lineHeight": "24px", "weight": 400 },
+      "bodyLarge": { "fontSize": "20px", "weight": 400 },
+      "displayCompact": { "fontSize": "36px", "weight": 400 },
+      "displayMobile": { "fontSize": "48px", "weight": 400 },
+      "section": { "fontSize": "44px", "weight": 400 },
+      "hero": { "fontSize": "56px", "weight": 400 }
     }
   },
   "breakpoints": {
@@ -75,37 +64,24 @@
   },
   "container": {
     "primary": "1128px",
-    "wide": "1184px",
-    "wideAlt": "1200px",
-    "fullBleed": "1920px",
-    "reading": ["640px", "675px", "540px"]
+    "wide": "1184px"
   },
   "spacing": {
-    "scale": [4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 30, 32, 40, 48, 50, 56, 60, 64, 80, 120, 160],
-    "mostFrequent": [8, 10, 12, 16, 20, 24, 40, 48],
-    "sectionVertical": "80px 0",
-    "sectionMajorGap": "120-160px"
+    "base": 4,
+    "scale": [4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 30, 32, 40, 48, 50, 56, 60, 64, 80]
   },
   "radii": {
-    "default": "4px",
-    "mediaTile": "8px",
-    "pillSmall": "20px",
-    "pillLarge": "40px",
-    "circle": "100%"
+    "card": "4px",
+    "media": "8px",
+    "pill": "20px",
+    "pillLarge": "40px"
   },
   "shadow": {
-    "note": "No dominant drop-shadow language on this site — depth comes from contrast, 1px borders, crop and overlap, not box-shadow."
+    "note": "Sparse shadows — depth from hairline borders and contrast, matching the mobile app."
   },
   "motion": {
-    "smoothScroll": "Lenis 1.3.17-framer",
-    "linkHoverTransition": "color 0.1s cubic-bezier(0,0,1,1)",
-    "revealFadeTransition": "opacity 0.4s ease-out",
-    "reducedMotion": "prior audit reports all durations collapse to 1ms under prefers-reduced-motion; not independently re-confirmed this pass"
-  },
-  "zLayers": {
-    "base": 0,
-    "stickyNav": 100,
-    "overlay": 200,
-    "modal": 300
+    "smoothScroll": "Lenis (disabled under prefers-reduced-motion)",
+    "reveal": "opacity + y:24, 0.5s, once",
+    "reducedMotion": "Reveal/Hero/CountUp skip animation; Lenis off"
   }
 }

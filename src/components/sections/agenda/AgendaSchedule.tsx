@@ -17,7 +17,7 @@ export async function AgendaSchedule() {
             {intro.headingLine2Plain}
             <span className="text-brand-orange">{intro.headingLine2Highlight}</span>
           </h2>
-          <p className="mt-4 max-w-xl font-body-fallback text-base leading-[1.6] text-text-gray-light">
+          <p className="mt-4 max-w-xl font-body text-base leading-[1.6] text-text-gray-light">
             {intro.sub}
           </p>
         </Reveal>

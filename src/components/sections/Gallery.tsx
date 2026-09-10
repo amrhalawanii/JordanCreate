@@ -28,7 +28,7 @@ export async function Gallery() {
             <h2 className="max-w-sm font-display text-[36px] leading-[1] tracking-[-0.7px] text-text-primary uppercase">
               The room where it <span className="text-brand-orange">all happened</span>
             </h2>
-            <p className="max-w-sm font-body-fallback text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
+            <p className="max-w-sm font-body text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
               Moments from the first edition of Jordan&apos;s largest creator economy event.
             </p>
             <GradientButton href="https://tally.so/r/2EyNej">Count Me In</GradientButton>

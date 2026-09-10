@@ -19,10 +19,10 @@ export async function Pillars() {
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.id} delay={i * 0.1} className="flex flex-col gap-4">
               <span aria-hidden className="h-1 w-10 rounded-full bg-brand-orange" />
-              <h3 className="font-body-fallback text-xl font-medium leading-[1.2] tracking-[-0.4px] text-text-primary">
+              <h3 className="font-body text-xl font-medium leading-[1.2] tracking-[-0.4px] text-text-primary">
                 {pillar.title}
               </h3>
-              <p className="font-body-fallback text-base leading-[1.2] text-text-gray-muted">
+              <p className="font-body text-base leading-[1.2] text-text-gray-muted">
                 {pillar.body}
               </p>
             </Reveal>

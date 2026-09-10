@@ -20,7 +20,7 @@ export async function MeetTheCrew() {
           <h2 className="mt-3 max-w-lg font-display text-[40px] italic leading-[1] tracking-[-0.8px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-1.12px]">
             {leadWords} <span className="opacity-50">{lastWord}</span>
           </h2>
-          <p className="mt-3 max-w-md font-body-fallback text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
+          <p className="mt-3 max-w-md font-body text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
             {intro.sub}
           </p>
         </Reveal>
@@ -47,7 +47,7 @@ export async function MeetTheCrew() {
                 <p className="font-display text-xl italic leading-[1.6] tracking-[-0.6px] text-text-primary">
                   {member.name}
                 </p>
-                <p className="font-body-fallback text-base leading-[1.4] text-text-gray-light">
+                <p className="font-body text-base leading-[1.4] text-text-gray-light">
                   {member.role}
                 </p>
               </div>

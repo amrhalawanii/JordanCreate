@@ -85,6 +85,7 @@ export const partnerImpact = {
   heading: "THE LARGEST CREATORS AUDIENCE IN JORDAN",
   sub: "Direct access to 350+ creators, marketers, and brands, plus a community that stays active year-round.",
   video: "/assets/partners/impact-loop.mp4",
+  mediaCaption: "Shared Their Expertise",
 };
 
 // 404 page

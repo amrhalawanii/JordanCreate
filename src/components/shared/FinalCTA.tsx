@@ -24,7 +24,7 @@ export async function FinalCTA() {
           <h2 className="font-display text-[28px] leading-[1.1] tracking-[-0.84px] text-text-primary sm:text-[36px] sm:tracking-[-1.08px]">
             {cta.heading}
           </h2>
-          <p className="font-body-fallback text-base leading-[1.2] text-text-primary">{cta.body}</p>
+          <p className="font-body text-base leading-[1.2] text-text-primary">{cta.body}</p>
           <GradientButton href={cta.cta.href}>{cta.cta.label}</GradientButton>
         </div>
       </Reveal>

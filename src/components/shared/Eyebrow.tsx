@@ -8,7 +8,7 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2">
       <Image src="/assets/icons/eyebrow-dot.svg" alt="" width={8} height={8} />
-      <p className="font-body-fallback text-sm leading-[1.3] text-text-gray-muted">{children}</p>
+      <p className="font-body text-sm leading-[1.3] text-text-gray-muted">{children}</p>
     </div>
   );
 }

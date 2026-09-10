@@ -31,7 +31,7 @@ export async function Numbers() {
               <span className="font-display text-2xl italic leading-[1.7] text-text-primary">
                 {stat.label}
               </span>
-              <p className="font-body-fallback text-base leading-[1.7] text-text-muted-60">
+              <p className="font-body text-base leading-[1.7] text-text-muted-60">
                 {stat.sublabel}
               </p>
             </Reveal>

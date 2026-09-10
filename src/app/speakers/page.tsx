@@ -38,7 +38,7 @@ export default async function SpeakersPage() {
             <h2 className="mt-3 max-w-lg font-display text-[40px] italic leading-[1] tracking-[-0.8px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-1.12px]">
               Meet the voices shaping <span className="opacity-50">what&apos;s next</span>
             </h2>
-            <p className="mt-3 max-w-md font-body-fallback text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
+            <p className="mt-3 max-w-md font-body text-xl leading-[1.6] tracking-[-0.4px] text-text-gray-light">
               Learn from the people who&apos;ve turned creativity into craft, community, and real
               careers.
             </p>
@@ -46,7 +46,7 @@ export default async function SpeakersPage() {
         </section>
         <section className="bg-canvas px-5 py-16 md:px-10 md:py-24">
           <div className="mx-auto max-w-(--container-primary)">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {speakers.map((speaker) => (
                 <SpeakerCard key={speaker.id} speaker={speaker} />
               ))}

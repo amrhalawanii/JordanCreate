@@ -30,7 +30,7 @@ export async function WhoYoureReaching() {
               <span className="font-display text-xl italic leading-[1.7] text-text-primary uppercase">
                 {stat.label}
               </span>
-              <p className="font-body-fallback text-base leading-[1.7] text-text-gray-light">
+              <p className="font-body text-base leading-[1.7] text-text-gray-light">
                 {stat.body}
               </p>
             </Reveal>

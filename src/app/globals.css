@@ -1,71 +1,90 @@
 @import "tailwindcss";
 
-/* Tokens sourced from /design-tokens.json (Phase 0 forensic extraction).
-   Keep this file and design-tokens.json in sync — components should only
-   ever reach for these tokens, never a raw hex/px value. */
+/* Product design tokens — mirrored from jordan-create-dsv1 native dark theme
+   (artifacts/jordan-create-dsv1) so the marketing site and guest app share
+   one visual language. Keep in sync with /design-tokens.json. Components
+   should only reach for these tokens, never a raw hex/px value. */
 @theme {
-  /* Color */
-  --color-canvas: #0f0f0f;
-  --color-canvas-deep: #0a0a0a;
-  --color-canvas-deeper: #070708;
-  --color-surface: #171717;
-  --color-surface-raised: #1a1a1a;
-  --color-border-card: #303030;
-  --color-border-subtle: #262626;
+  /* Color — mobile dark canvas (warmer stage black, not pure #0f0f0f) */
+  --color-canvas: #141210;
+  --color-canvas-deep: #0e0d0c;
+  --color-canvas-deeper: #0e0d0c;
+  --color-surface: #1c1916;
+  --color-surface-raised: #241f1b;
+  --color-border-card: rgba(245, 239, 230, 0.12);
+  --color-border-subtle: rgba(245, 239, 230, 0.08);
 
-  --color-text-primary: #ffffff;
-  --color-text-offwhite: #fafafa;
-  --color-text-muted-80: rgba(255, 255, 255, 0.8);
-  --color-text-muted-60: rgba(255, 255, 255, 0.6);
-  --color-text-gray-light: #a3a3a3;
-  --color-text-gray-muted: #858585;
-  --color-text-gray-mid: #666666;
+  --color-text-primary: #f5efe6;
+  --color-text-offwhite: #f5efe6;
+  --color-text-muted-80: rgba(245, 239, 230, 0.8);
+  --color-text-muted-60: rgba(245, 239, 230, 0.62);
+  --color-text-gray-light: #b4aaa0;
+  --color-text-gray-muted: #b4aaa0;
+  --color-text-gray-mid: #8a8278;
 
   --color-brand-orange: #ea8f2d;
   --color-brand-orange-hot: #ff6b00;
   --color-on-orange: #0f0f0f;
-  /* Primary CTA gradient — exact stops from the Figma source (Sept 2026
-     redesign), not a flat fill. Every "Count Me In" / "Join Us" / "Contact
-     us" pill uses this. */
+  /* Primary CTA gradient — shared with mobile OrangeGradientCard */
   --gradient-brand-orange: linear-gradient(
     111deg,
     #eebc2b 0%,
     #faac44 1.1538%,
     #fe7a1f 100%
   );
-  /* Exact color of the footer's "Navigation" label — a distinct gold, not
-     the same hex as --color-brand-orange (confirmed via computed styles). */
   --color-footer-nav-label: #eeba2b;
-  /* "Back to Speakers" link color on the speaker detail template — a
-     distinct red-orange, not the same hex as --color-brand-orange. */
   --color-accent-red-orange: #f3500f;
 
-  /* Type — resolved through next/font's own generated variables (see
-     src/app/fonts.ts) so we get font-metric fallbacks and no layout shift,
-     while every component still just reaches for font-display/label/body. */
-  --font-display: var(--font-display-serif), serif;
-  --font-label: var(--font-label-sans), sans-serif;
-  --font-body: var(--font-body-sans), sans-serif;
-  --font-body-fallback: var(--font-body-fallback-sans), sans-serif;
-  --font-utility: var(--font-utility-sans), sans-serif;
+  /* Type — Georgia display + Inter for all UI roles (matches mobile DS) */
+  --font-display: Georgia, "Times New Roman", Times, serif;
+  --font-label: var(--font-inter), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-utility: var(--font-inter), system-ui, sans-serif;
 
   /* Container */
   --container-primary: 1128px;
   --container-wide: 1184px;
 
-  /* Radii */
+  /* Radii — match nativeTheme.radius */
   --radius-default: 4px;
   --radius-media: 8px;
   --radius-pill-sm: 20px;
   --radius-pill-lg: 40px;
 
-  /* Breakpoints — match the live site's own (not Tailwind's defaults) */
+  /* Breakpoints */
   --breakpoint-tablet: 810px;
   --breakpoint-desktop: 1200px;
 }
 
+html {
+  background: var(--color-canvas);
+}
+
 body {
+  position: relative;
   background: var(--color-canvas);
   color: var(--color-text-primary);
-  font-family: var(--font-body), var(--font-body-fallback);
+  font-family: var(--font-body);
+  isolation: isolate;
+}
+
+/* Subtle top-right orange ambient wash — same chrome language as the app */
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse 80% 50% at 100% -10%,
+    rgba(234, 143, 45, 0.14),
+    transparent 55%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

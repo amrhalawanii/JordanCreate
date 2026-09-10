@@ -4,33 +4,36 @@ import type { Speaker } from "@/content/schemas/speaker";
 import { GrainOverlay } from "./GrainOverlay";
 
 function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
+  // Live jordancreate.com card: ~349×474, 4px pad, surface fill, square
+  // portrait on top + content stack below (name / followers / IG).
   return (
-    <div className="overflow-hidden rounded-(--radius-default) border border-white/10">
-      <div className="relative aspect-[3/4] w-full bg-surface">
+    <div className="flex h-full flex-col rounded-(--radius-default) bg-surface p-1">
+      <div className="relative aspect-square w-full overflow-hidden rounded-(--radius-default) bg-canvas">
         <Image
           src={speaker.portrait}
           alt={speaker.name}
           fill
-          sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+          sizes="(min-width: 1200px) 349px, (min-width: 640px) 33vw, 50vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <GrainOverlay />
       </div>
-      <div className="flex flex-col gap-1 p-5">
-        <p className="font-body-fallback text-[19px] leading-[1.6] tracking-[-0.6px] text-text-primary">
-          {speaker.name}
-        </p>
-        {speaker.followers && (
-          <p className="font-body-fallback text-base leading-[1.4] text-text-gray-light">
-            {speaker.followers}
+      <div className="flex flex-col justify-center gap-4 p-5">
+        <div className="flex flex-col gap-1">
+          <p className="font-display text-[20px] italic leading-[1.2] tracking-[-0.4px] text-text-primary">
+            {speaker.name}
           </p>
-        )}
+          {speaker.followers && (
+            <p className="font-body text-base leading-[1.4] text-[#a3a3a3]">
+              {speaker.followers}
+            </p>
+          )}
+        </div>
         <Image
           src="/assets/brand/instagram-icon.png"
           alt=""
           width={24}
           height={24}
-          className="mt-1"
         />
       </div>
     </div>
@@ -53,7 +56,7 @@ export function SpeakerCard({
 }) {
   if (linkTo === "instagram" && speaker.instagramUrl) {
     return (
-      <a href={speaker.instagramUrl} target="_blank" rel="noreferrer" className="group block">
+      <a href={speaker.instagramUrl} target="_blank" rel="noreferrer" className="group block h-full">
         <SpeakerCardBody speaker={speaker} />
       </a>
     );
@@ -62,7 +65,7 @@ export function SpeakerCard({
   return (
     <Link
       href={`/highlighted-speakers-blog/${encodeURIComponent(speaker.slug)}`}
-      className="group block"
+      className="group block h-full"
     >
       <SpeakerCardBody speaker={speaker} />
     </Link>

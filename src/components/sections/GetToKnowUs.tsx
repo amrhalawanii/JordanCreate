@@ -21,7 +21,7 @@ export function GetToKnowUs({ tabs }: { tabs: InfoTab[] }) {
   const goNext = () => setActive((a) => (a + 1) % count);
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="relative z-10 bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
         <Eyebrow>Get to know us</Eyebrow>
         <h2 className="mt-3 max-w-xl font-display text-[40px] leading-[1.1] tracking-[-1.2px] text-text-primary uppercase sm:text-[52.6px] sm:tracking-[-1.68px]">
@@ -38,7 +38,7 @@ export function GetToKnowUs({ tabs }: { tabs: InfoTab[] }) {
                 key={tab.id}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`relative px-3 py-2 font-body-fallback text-base leading-[1.2] transition-colors duration-150 ${
+                className={`relative px-3 py-2 font-body text-base leading-[1.2] transition-colors duration-150 ${
                   isActive ? "text-text-primary" : "text-text-gray-muted"
                 }`}
               >

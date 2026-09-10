@@ -21,7 +21,7 @@ export function MobileNav({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="font-body-fallback text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary"
+        className="font-body text-base leading-[1.2] tracking-[-0.64px] uppercase text-text-primary"
       >
         {open ? "Close" : "Menu"}
       </button>

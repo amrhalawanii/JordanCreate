@@ -22,7 +22,7 @@ export function GradientButton({
       // silently no-ops for a linear-gradient() value — inline style avoids
       // that trap and sets background-image directly.
       style={{ backgroundImage: "var(--gradient-brand-orange)" }}
-      className={`inline-flex items-center justify-center rounded-(--radius-pill-lg) border-2 border-white/20 px-6 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-transform duration-150 hover:scale-[1.02] ${className}`}
+      className={`inline-flex items-center justify-center rounded-(--radius-pill-lg) border-2 border-white/20 px-6 py-3 font-body text-base font-medium leading-[1.2] text-on-orange transition-transform duration-150 hover:scale-[1.02] ${className}`}
     >
       {children}
     </a>

@@ -11,3 +11,6 @@ tsconfig.tsbuildinfo
 reference/screenshots/
 reference/dom/
 reference/assets-original/
+
+.tmp-hero-frames/
+.tmp-hero-frames2/

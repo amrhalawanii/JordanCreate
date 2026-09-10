@@ -18,8 +18,11 @@ export default async function HomePage() {
     <>
       <Header />
       <main>
-        <Hero />
-        <GetToKnowUs tabs={infoTabs} />
+        {/* Sticky hero pin: Get to Know Us scrolls up and covers the hero */}
+        <div className="relative">
+          <Hero />
+          <GetToKnowUs tabs={infoTabs} />
+        </div>
         <IntroBlock />
         <Numbers />
         <SpeakersStrip />

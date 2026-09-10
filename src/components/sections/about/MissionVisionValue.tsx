@@ -23,7 +23,7 @@ export async function MissionVisionValue() {
               <h3 className="font-display text-[40px] italic leading-[1.1] tracking-[-1.6px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-2.24px]">
                 {b.heading}
               </h3>
-              <p className="mt-4 font-body-fallback text-lg leading-[1.5] tracking-[-0.36px] text-text-muted-80">
+              <p className="mt-4 font-body text-lg leading-[1.5] tracking-[-0.36px] text-text-muted-80">
                 {b.body}
               </p>
               <GradientButton href={b.cta.href} className="mt-6 px-6 py-2.5">

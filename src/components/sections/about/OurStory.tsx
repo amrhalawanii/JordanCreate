@@ -14,20 +14,20 @@ export async function OurStory() {
         </Reveal>
         <Reveal delay={0.1}>
           <Eyebrow>{story.eyebrow}</Eyebrow>
-          <p className="mt-1 font-body-fallback text-sm leading-[1.3] text-text-gray-muted">
+          <p className="mt-1 font-body text-sm leading-[1.3] text-text-gray-muted">
             {story.eyebrowSecondary}
           </p>
           <p className="mt-6 font-utility text-2xl leading-[1.375] tracking-[-0.03px] text-text-primary sm:text-[32px]">
             {story.body}
           </p>
-          <p className="mt-6 font-body-fallback text-base leading-[1.5] text-text-muted-80">
+          <p className="mt-6 font-body text-base leading-[1.5] text-text-muted-80">
             {story.closingLine}
           </p>
           <a
             href={story.cta.href}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-block rounded-(--radius-pill-lg) border border-border-card px-6 py-2.5 font-body-fallback text-base text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:border-brand-orange hover:text-brand-orange"
+            className="mt-8 inline-block rounded-(--radius-pill-lg) border border-border-card px-6 py-2.5 font-body text-base text-text-primary transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:border-brand-orange hover:text-brand-orange"
           >
             {story.cta.label}
           </a>

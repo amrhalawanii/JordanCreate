@@ -1,14 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-// Restrained opacity + small translate on scroll-into-view, matching the
-// site's own motion language: short, direct transitions (confirmed link
-// transition is 0.1s cubic-bezier(0,0,1,1); confirmed reveal-fade transition
-// is opacity 0.4s ease-out — see MOTION-SPEC.md). Fires once, not on every
-// scroll-up re-entry, since the exact replay behavior wasn't independently
-// confirmed against the live site.
+// Restrained opacity + small translate on scroll-into-view. Skips motion
+// when the user prefers reduced motion (product a11y baseline).
 export function Reveal({
   children,
   delay = 0,
@@ -18,6 +14,12 @@ export function Reveal({
   delay?: number;
   className?: string;
 }) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
