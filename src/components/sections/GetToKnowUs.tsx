@@ -10,6 +10,10 @@ export function GetToKnowUs({ tabs }: { tabs: InfoTab[] }) {
   const current = tabs[active] ?? tabs[0];
   if (!current) return null;
 
+  const count = tabs.length;
+  const goPrev = () => setActive((a) => (a - 1 + count) % count);
+  const goNext = () => setActive((a) => (a + 1) % count);
+
   return (
     <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-(--container-primary)">
@@ -21,13 +25,34 @@ export function GetToKnowUs({ tabs }: { tabs: InfoTab[] }) {
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
           <div className="relative aspect-square w-full overflow-hidden rounded-(--radius-media) bg-surface">
             <Image
-              src="/assets/hero/home-hero.png"
+              src={current.image}
               alt=""
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-contain p-10 opacity-90 transition-opacity duration-300"
+              className="object-cover transition-opacity duration-300"
               key={current.id}
             />
+            {/* Prev/next controls cycling through the 3 panels — real SVG
+                assets pulled from the live site, not generic icon-font
+                arrows. */}
+            <div className="absolute bottom-4 right-4 z-10 flex gap-2">
+              <button
+                type="button"
+                onClick={goPrev}
+                aria-label="Previous"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-canvas/80 backdrop-blur transition-colors hover:bg-brand-orange"
+              >
+                <Image src="/assets/icons/arrow-left.svg" alt="" width={16} height={16} />
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Next"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-canvas/80 backdrop-blur transition-colors hover:bg-brand-orange"
+              >
+                <Image src="/assets/icons/arrow-right.svg" alt="" width={16} height={16} />
+              </button>
+            </div>
           </div>
 
           <div className="flex flex-col gap-2">

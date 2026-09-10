@@ -6,6 +6,7 @@ export const InfoTabSchema = z.object({
   trigger: z.string(),
   body: z.string(),
   cta: CTASchema,
+  image: z.string(),
   order: z.number(),
 });
 export type InfoTab = z.infer<typeof InfoTabSchema>;

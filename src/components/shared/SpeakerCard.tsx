@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Speaker } from "@/content/schemas/speaker";
+import { GrainOverlay } from "./GrainOverlay";
 
 function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
   return (
@@ -13,6 +14,7 @@ function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
           sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
+        <GrainOverlay />
       </div>
       <div>
         <p className="font-display text-xl italic leading-[1.6] tracking-[-0.6px] text-text-primary">
