@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getMissionVisionValue } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
+import { GradientButton } from "@/components/shared/GradientButton";
 
 export async function MissionVisionValue() {
   const blocks = await getMissionVisionValue();
@@ -25,14 +26,9 @@ export async function MissionVisionValue() {
               <p className="mt-4 font-body-fallback text-lg leading-[1.5] tracking-[-0.36px] text-text-muted-80">
                 {b.body}
               </p>
-              <a
-                href={b.cta.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-block rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
-              >
+              <GradientButton href={b.cta.href} className="mt-6 px-6 py-2.5">
                 {b.cta.label}
-              </a>
+              </GradientButton>
             </Reveal>
           </div>
         ))}

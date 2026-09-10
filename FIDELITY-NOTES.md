@@ -3,6 +3,56 @@
 Every deliberate deviation from the live site, and every known defect on the
 live site that was replicated rather than fixed.
 
+## Figma redesign alignment (2026-09-10) — supersedes live-site fidelity on the home page
+
+The user pointed to a Figma file
+(`xcRZno8KujVhST5Ec35K5i`, node `15:2133`, "Jordan Create Home Page") as the
+authoritative reference for the home page and asked for an exact match. This
+Figma file is a **newer design iteration than the live site** — pulling
+`get_design_context` for every home-page section surfaced real structural
+and content differences, not just polish:
+
+- **Numbers changed**: 400+ Attendees / 34 Speakers / 12 Impact Sessions /
+  100M+ Followers, up from the live site's 350+/15/3/70M+. Updated
+  `src/content/data/stats.ts` to match Figma — this is a genuine content
+  change, not a bug fix, and reverses the Phase 0 live-site-fidelity value.
+- **CTA buttons are a diagonal gradient** (`111deg, #eebc2b → #faac44 →
+  #fe7a1f` with a 2px white/20% border), not the flat `#ea8f2d` fill used
+  everywhere before. New `--gradient-brand-orange` token + shared
+  `GradientButton` component, applied to every CTA site-wide.
+- **"Get to know us" is a tab bar**, not the accordion-style stacked panels
+  built earlier: one trigger row with a bottom-border indicator on the
+  active tab, and all three tab images crossfade-stacked (opacity, not
+  swapped) below it. Added the 3 distinct per-tab images (found in a
+  user-supplied saveweb2zip archive) and the real prev/next arrow icons.
+  Rebuilt in `GetToKnowUs.tsx`.
+- **The Gallery section is a fixed-height split-scroll layout** (sticky text
+  panel + independently-scrollable 2-column masonry image grid), not a
+  horizontal marquee. Every gallery image is desaturated (`grayscale`) in
+  Figma — the live site's images are full color. Rebuilt in `Gallery.tsx`.
+- **FAQ rows have a card background** (`#0a0a0a`, rounded, bordered) and a
+  real plus-icon SVG, not a bare bottom-border divider with a text "+".
+- **Speaker names use Inter (upright sans), not TT Ramillas italic serif** —
+  this reverses part of the earlier typography precision pass, which was
+  correct for the *live* site but not for this newer Figma design. Speaker
+  cards also gained a bordered frame and a small Instagram glyph.
+- **Eyebrow labels get a small dot icon** (an actual 8×8 SVG, not a
+  CSS-drawn circle) before the text.
+- Fixed a real bug surfaced along the way: Tailwind's `bg-(--var)`
+  shorthand assumes `background-color`, which silently no-ops for a
+  `linear-gradient()` value. Every gradient button now sets
+  `backgroundImage` via inline style instead.
+- Found and fixed a real performance bug unrelated to Figma: several
+  speaker portrait originals were 30–60MB PNGs, which crashed Next's image
+  optimizer in this dev environment (`ERR_MAX_BODY_SIZE_EXCEEDED`). Bulk
+  down-sized every asset over 500KB to a 1920px‑longest‑edge cap
+  (`sips -Z 1920`), cutting `public/assets` from ~600MB to ~118MB.
+
+Not yet re-verified against this Figma file: Partner-with-us, About Us, and
+Speakers page (beyond the shared Header/Footer/FAQ/GradientButton/Eyebrow
+components, which now apply everywhere). The user's request was scoped to
+the home page.
+
 ## Typography precision pass (2026-09-10)
 
 The initial build (Phases 2–5) used Tailwind's default type scale and

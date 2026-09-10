@@ -70,7 +70,10 @@ export default async function SpeakerDetailPage({
                 </p>
               )}
               {speaker.followers && (
-                <p className="w-fit rounded-(--radius-pill-sm) bg-brand-orange px-3 py-1 font-body text-lg leading-[1.2] text-on-orange">
+                <p
+                  style={{ backgroundImage: "var(--gradient-brand-orange)" }}
+                  className="w-fit rounded-(--radius-pill-sm) px-3 py-1 font-body text-lg leading-[1.2] text-on-orange"
+                >
                   {speaker.followers}
                 </p>
               )}

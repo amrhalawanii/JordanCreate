@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getDesktopNavItems, getMobileNavItems, getSiteSettings } from "@/content/repository";
 import { MobileNav } from "./MobileNav";
+import { GradientButton } from "@/components/shared/GradientButton";
 
 export async function Header() {
   const [navItems, mobileNavItems, settings] = await Promise.all([
@@ -37,14 +38,9 @@ export async function Header() {
               </li>
             ))}
           </ul>
-          <a
-            href={settings.contactCta.href}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-(--radius-pill-lg) bg-brand-orange px-6 py-2.5 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
-          >
+          <GradientButton href={settings.contactCta.href} className="px-6 py-2.5">
             {settings.contactCta.label}
-          </a>
+          </GradientButton>
         </nav>
 
         <MobileNav navItems={mobileNavItems} contactCta={settings.contactCta} />

@@ -1,6 +1,7 @@
 import { getIntroBlock } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/shared/Eyebrow";
+import { GradientButton } from "@/components/shared/GradientButton";
 
 // The master prompt's spec calls "One of the largest Creator Economy
 // events" the section's "heading", but the live site's computed styles
@@ -22,14 +23,7 @@ export async function IntroBlock() {
             </p>
           ))}
         </div>
-        <a
-          href={intro.cta.href}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
-        >
-          {intro.cta.label}
-        </a>
+        <GradientButton href={intro.cta.href}>{intro.cta.label}</GradientButton>
       </Reveal>
     </section>
   );

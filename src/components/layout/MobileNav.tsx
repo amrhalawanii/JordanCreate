@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { CTA, NavItem } from "@/content/schemas/nav";
+import { GradientButton } from "@/components/shared/GradientButton";
 
 export function MobileNav({
   navItems,
@@ -41,14 +42,9 @@ export function MobileNav({
             ))}
           </ul>
           <div className="px-5 pb-10">
-            <a
-              href={contactCta.href}
-              target="_blank"
-              rel="noreferrer"
-              className="block w-full rounded-(--radius-pill-lg) bg-brand-orange px-6 py-3 text-center font-body-fallback text-base font-medium leading-[1.2] text-on-orange"
-            >
+            <GradientButton href={contactCta.href} className="w-full">
               {contactCta.label}
-            </a>
+            </GradientButton>
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import type { PageHero as PageHeroType } from "@/content/schemas/tab";
+import { GradientButton } from "./GradientButton";
 
 export function PageHero({ hero }: { hero: PageHeroType }) {
   // The three page heroes are genuinely different sizes on the live site
@@ -40,16 +41,7 @@ export function PageHero({ hero }: { hero: PageHeroType }) {
             {hero.subheading}
           </p>
         )}
-        {hero.cta && (
-          <a
-            href={hero.cta.href}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
-          >
-            {hero.cta.label}
-          </a>
-        )}
+        {hero.cta && <GradientButton href={hero.cta.href}>{hero.cta.label}</GradientButton>}
       </motion.div>
     </header>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { FAQEntry } from "@/content/schemas/faq";
 
 export function FAQAccordion({ entries }: { entries: FAQEntry[] }) {
@@ -22,31 +23,34 @@ export function FAQAccordion({ entries }: { entries: FAQEntry[] }) {
   const right = entries.filter((_, i) => i % 2 === 1);
 
   return (
-    <div className="grid grid-cols-1 gap-x-10 gap-y-2 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {[left, right].map((col, colIdx) => (
-        <div key={colIdx} className="flex flex-col">
+        <div key={colIdx} className="flex flex-col gap-4">
           {col.map((entry) => {
             const open = openIds.has(entry.id);
             return (
-              <div key={entry.id} className="border-b border-border-subtle py-4">
+              <div
+                key={entry.id}
+                className="rounded-(--radius-default) border border-white/10 bg-canvas-deep"
+              >
                 <button
                   type="button"
                   onClick={() => toggle(entry.id)}
                   aria-expanded={open}
-                  className="flex w-full items-center justify-between gap-4 text-left"
+                  className="flex w-full items-center justify-between gap-3 p-4 text-left"
                 >
                   <span className="font-label text-base leading-[1.2] font-medium text-text-primary">
                     {entry.question}
                   </span>
                   <span
                     aria-hidden
-                    className={`shrink-0 text-lg text-text-gray-light transition-transform duration-150 ${open ? "rotate-45" : ""}`}
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center transition-transform duration-150 ${open ? "rotate-45" : ""}`}
                   >
-                    +
+                    <Image src="/assets/icons/faq-plus.svg" alt="" width={16} height={16} />
                   </span>
                 </button>
                 {open && (
-                  <p className="mt-3 font-body text-base leading-[1.3] text-text-gray-light">
+                  <p className="px-4 pb-4 font-body text-base leading-[1.3] text-text-gray-light">
                     {entry.answer}
                   </p>
                 )}

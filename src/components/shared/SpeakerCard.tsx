@@ -5,8 +5,8 @@ import { GrainOverlay } from "./GrainOverlay";
 
 function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
   return (
-    <>
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-(--radius-media) bg-surface">
+    <div className="overflow-hidden rounded-(--radius-default) border border-white/10">
+      <div className="relative aspect-[3/4] w-full bg-surface">
         <Image
           src={speaker.portrait}
           alt={speaker.name}
@@ -16,8 +16,8 @@ function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
         />
         <GrainOverlay />
       </div>
-      <div>
-        <p className="font-display text-xl italic leading-[1.6] tracking-[-0.6px] text-text-primary">
+      <div className="flex flex-col gap-1 p-5">
+        <p className="font-body-fallback text-[19px] leading-[1.6] tracking-[-0.6px] text-text-primary">
           {speaker.name}
         </p>
         {speaker.followers && (
@@ -25,8 +25,15 @@ function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
             {speaker.followers}
           </p>
         )}
+        <Image
+          src="/assets/brand/instagram-icon.png"
+          alt=""
+          width={24}
+          height={24}
+          className="mt-1"
+        />
       </div>
-    </>
+    </div>
   );
 }
 
@@ -46,12 +53,7 @@ export function SpeakerCard({
 }) {
   if (linkTo === "instagram" && speaker.instagramUrl) {
     return (
-      <a
-        href={speaker.instagramUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="group flex flex-col gap-3"
-      >
+      <a href={speaker.instagramUrl} target="_blank" rel="noreferrer" className="group block">
         <SpeakerCardBody speaker={speaker} />
       </a>
     );
@@ -60,7 +62,7 @@ export function SpeakerCard({
   return (
     <Link
       href={`/highlighted-speakers-blog/${encodeURIComponent(speaker.slug)}`}
-      className="group flex flex-col gap-3"
+      className="group block"
     >
       <SpeakerCardBody speaker={speaker} />
     </Link>

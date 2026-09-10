@@ -16,7 +16,8 @@ export default async function NotFound() {
         <p className="font-body text-base text-text-gray-light">{content.sub}</p>
         <Link
           href={content.cta.href}
-          className="rounded-(--radius-pill-lg) bg-brand-orange px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:bg-brand-orange-hot"
+          style={{ backgroundImage: "var(--gradient-brand-orange)" }}
+          className="inline-flex items-center justify-center rounded-(--radius-pill-lg) border-2 border-white/20 px-8 py-3 font-body-fallback text-base font-medium leading-[1.2] text-on-orange transition-transform duration-150 hover:scale-[1.02]"
         >
           {content.cta.label}
         </Link>
