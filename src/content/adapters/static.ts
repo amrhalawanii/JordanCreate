@@ -14,7 +14,8 @@ import { homeStats, reachStats } from "../data/stats";
 import { galleryImages } from "../data/gallery";
 import { partnerBenefits, impactItems } from "../data/partnerBenefits";
 import { infoTabs } from "../data/infoTabs";
-import { speakersHero, partnerHero, aboutHero } from "../data/pageHeroes";
+import { speakersHero, partnerHero, aboutHero, agendaHero } from "../data/pageHeroes";
+import { agendaSessions } from "../data/agenda";
 import * as misc from "../data/misc";
 
 const byOrder = <T extends { order: number }>(items: T[]) => [...items].sort((a, b) => a.order - b.order);
@@ -66,6 +67,9 @@ export async function getInfoTabs() { return byOrder(infoTabs); }
 export async function getSpeakersHero() { return speakersHero; }
 export async function getPartnerHero() { return partnerHero; }
 export async function getAboutHero() { return aboutHero; }
+export async function getAgendaHero() { return agendaHero; }
+export async function getAgendaSessions() { return byOrder(agendaSessions); }
+export async function getAgendaIntro() { return misc.agendaIntro; }
 
 export async function getIntroBlock() { return misc.introBlock; }
 export async function getFinalCta() { return misc.finalCta; }

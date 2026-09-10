@@ -1,10 +1,11 @@
 import type { NavItem, SiteSettings } from "../schemas/nav";
 
-// Desktop nav. "AGENDA" and "Speakers" both point to /speakers on the live
-// site — a known quirk, replicated deliberately (see FIDELITY-NOTES.md).
+// Desktop nav. The live site added a genuine, distinct /agenda page after
+// Phase 0 extraction — "AGENDA" pointing at /speakers was a documented dup
+// at the time, but is no longer accurate and is fixed here.
 export const desktopNavItems: NavItem[] = [
   { id: "home", label: "Home", href: "/", order: 0 },
-  { id: "agenda", label: "AGENDA", href: "/speakers", order: 1 },
+  { id: "agenda", label: "AGENDA", href: "/agenda", order: 1 },
   { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
   { id: "partner", label: "Partner with Us", href: "/partner-with-us", order: 3 },
   { id: "about", label: "About Us", href: "/about-us", order: 4 },
@@ -15,7 +16,7 @@ export const desktopNavItems: NavItem[] = [
 // "Partner With Us" for the same link. Replicated deliberately.
 export const mobileNavItems: NavItem[] = [
   { id: "home", label: "Home", href: "/", order: 0 },
-  { id: "agenda", label: "AGENDA", href: "/speakers", order: 1 },
+  { id: "agenda", label: "AGENDA", href: "/agenda", order: 1 },
   { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
   { id: "partner", label: "For Partners", href: "/partner-with-us", order: 3 },
   { id: "about", label: "About Us", href: "/about-us", order: 4 },

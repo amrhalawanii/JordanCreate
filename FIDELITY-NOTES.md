@@ -3,6 +3,78 @@
 Every deliberate deviation from the live site, and every known defect on the
 live site that was replicated rather than fixed.
 
+## Agenda page (2026-09-10) — new live page, built against Figma + live DOM
+
+The live site added a genuine `/agenda` route after Phase 0 extraction (it
+didn't exist when `EXTRACTION.md` was written). Built fresh, matching both
+sources:
+
+- **Content**: pulled from the live DOM via `scripts/extract-agenda.ts`
+  (fixed a `waitUntil: "networkidle"` timeout by switching to `"load"` —
+  the page has enough background activity, likely video/analytics, that
+  network never truly idles). All 14 schedule rows (1 gradient "Registration
+  and Check-In" row + 13 regular sessions), their exact time-range strings,
+  titles, body copy, and speaker images were extracted verbatim, including
+  the live site's own inconsistent time formatting (`"04:10 PM"` vs
+  `"4:10 PM"`, en-dash vs hyphen vs no-space dash) — reproduced as-is per
+  the "never improve" rule. See `src/content/data/agenda.ts`.
+- **Layout**: cross-checked against the Figma file
+  (`xcRZno8KujVhST5Ec35K5i`, node `16:4183`) per the user's explicit
+  instruction. Figma's `get_design_context` tool hit this project's MCP
+  rate limit (Starter plan) mid-session and returned no further results, so
+  this page was built from `get_metadata` (structure) + `get_screenshot`
+  (a downloaded, cropped-and-upscaled visual reference) + the live site's
+  own computed styles — not from Figma-generated code. The two sources
+  agreed everywhere they overlapped (gradient bar layout, time-chip
+  styling, avatar shape/size, font choices), which is the main reason this
+  build is confident in the result despite the missing tool.
+- **Schedule row rebuild**: my first pass (written before consulting the
+  screenshot closely) guessed the gradient "Registration" row as a stacked
+  card and speaker avatars as overlapping circles. Both were wrong —
+  corrected after zooming into the Figma screenshot and confirming via live
+  computed styles: the gradient row is one horizontal bar
+  (`justify-between`, time left / title right, dark `#0f0f0f` text, radius
+  4px — using the same `--gradient-brand-orange` token as every other CTA
+  on the site), and speaker thumbnails are rounded **squares** (80×80,
+  8px radius, 12px gap, not overlapping), not circles.
+- **Hero heading font**: computed style on the live `<h1>AGENDA</h1>` and
+  the `<h2>` section heading both resolve to the site's real TT Ramillas
+  font family with `font-style: normal` (not the "Italic Variable" cut) —
+  i.e. non-italic display serif, same treatment as the home page's hero
+  heading (`HeroAnimated.tsx`) and `PageHero.tsx`'s default. A first
+  low-resolution look at the Figma screenshot crop read as a plain
+  sans-serif; computed style from the live DOM was trusted over that visual
+  read. Reused the existing `PageHero` component as-is (`headingSizeDesktop:
+  100`, matching the Partner-with-us hero's size) rather than building a
+  bespoke hero.
+- **Hero background image**: byte-identical (md5-verified) to
+  `/assets/about/page-hero-bg.png`, already used by the Speakers/Partner/
+  About Us heroes — Framer re-hosts the same file under a different hash
+  per page. No new asset needed.
+- **Eyebrow**: the small mark before "AGENDA" in both the nav-adjacent
+  breadcrumb-style eyebrow and the section header is the standard dot icon
+  (reused the existing `Eyebrow` component), not a back-arrow as an early,
+  low-resolution screenshot read suggested.
+- Nav: `desktopNavItems`/`mobileNavItems`'s "AGENDA" entry, previously a
+  documented dup pointing at `/speakers`, now correctly points at
+  `/agenda` (`src/content/data/nav.ts`).
+- **Verification note, not a defect**: one speaker thumbnail (Keynote row,
+  `r6aTRBPZC9KhstC0SpuNcHg7gfw.png`) reproducibly never finished loading in
+  the Claude Code Browser pane specifically, across fresh tabs and a full
+  session restart, while all other 38 thumbnails on the page loaded fine.
+  Ruled out as a real bug: `curl` with the exact browser `Accept` header
+  Next.js negotiates against (`image/avif,image/webp,...`) returns the
+  transcoded WebP instantly at every width the page requests, and the
+  decoded output is a correct, valid image (checked visually). No error
+  ever appears in the dev server logs for this asset. This is isolated to
+  the preview tool's own CDP layer for this one response, not the shipped
+  code — flagging in case it resurfaces during a later QA pass.
+- **Speaker thumbnails are desaturated in Figma but not on the live site**
+  (confirmed: live computed `filter` on those `<img>`s is `none`). Applied
+  Tailwind's `grayscale` class to match Figma, the same call already made
+  for the home page's Gallery images (`Gallery.tsx`) for the same reason —
+  Figma is authoritative for this page per the user's instruction.
+
 ## Figma redesign alignment (2026-09-10) — supersedes live-site fidelity on the home page
 
 The user pointed to a Figma file

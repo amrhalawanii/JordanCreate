@@ -24,3 +24,15 @@ export const aboutHero: PageHero = {
   subheading: "",
   backgroundImage: "/assets/about/page-hero-bg.png",
 };
+
+// Same background image as the other three page heroes (confirmed: identical
+// bytes, md5-verified against the live /agenda page's own hero image URL —
+// Framer just re-hosts it under a different hash there). No subheading/CTA
+// on this hero; the live page puts its subcopy in the section header below.
+export const agendaHero: PageHero = {
+  id: "agenda-hero",
+  heading: "AGENDA",
+  headingSizeDesktop: 100,
+  subheading: "",
+  backgroundImage: "/assets/about/page-hero-bg.png",
+};

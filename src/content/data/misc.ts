@@ -67,6 +67,18 @@ export const whatPartnersGet = {
   headingLine2: "BE PART OF THE MOVEMENT",
 };
 
+// Agenda page — schedule section header. "LAST SET" is the highlighted
+// (orange) portion of the heading on the live site; the component splits it
+// out directly, same as every other partial-color heading on this site
+// (there's no highlight-span concept in the content model).
+export const agendaIntro = {
+  eyebrow: "AGENDA",
+  headingLine1: "FROM THE FIRST SPEAKER",
+  headingLine2Plain: "TO THE ",
+  headingLine2Highlight: "LAST SET",
+  sub: "From the first session to the last toast, every pillar, every speaker, every moment mapped out so you never miss what matters.",
+};
+
 // Partner with us — "IMPACT"
 export const partnerImpact = {
   eyebrow: "IMPACT",
