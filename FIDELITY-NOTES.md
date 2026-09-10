@@ -60,6 +60,31 @@ themselves:
 - **Partner page reach stats** (910+/10M+) were already re-verified live in
   the Phase 0 pass and are correct; re-confirmed again here.
 
+## Archive cross-reference (2026-09-10)
+
+The user supplied a saveweb2zip.com archive of jordancreate.com (a full
+asset mirror plus a mobile-UA capture of the home page's raw HTML). Diffed
+its 39 unique `framerusercontent.com` image hashes against our own
+`ASSET-MANIFEST.json` (93 hashes already harvested in Phase 0) — only 3
+were genuinely new, all real fidelity gaps rather than duplicates:
+
+- **Favicon.** We'd been reusing the apple-touch-icon for `src/app/icon.png`.
+  The archive's `<link rel="icon">` points to a distinct file
+  (`4Ooojkhke5fGJma4zsKrZQoy9SM.png`) — now used correctly.
+- **Grain/noise texture overlay.** Every speaker portrait on the live site
+  carries a subtle repeating grain texture (`background-image`, 256×256
+  tile, `opacity:0.05`, oversized and centered). This is a plain CSS
+  background layer, not something the Phase 0 `getComputedStyle()` sweep
+  would ever surface as a distinct "asset" — genuinely invisible to that
+  extraction method. Added as `src/components/shared/GrainOverlay.tsx`.
+- **"Get to know us" tab images.** The archive's DOM has
+  `data-framer-name="Image1/2/3"` on three distinct images, one per tab —
+  we'd been reusing a single image across all three. Fixed (see below).
+
+Also implemented, using the archive's real SVGs rather than a generic
+icon: the **prev/next arrow controls** on the "Get to know us" panel — in
+the master prompt's own spec (§5.1) but not built until now.
+
 ## Known defects on the live site — replicated as-is
 
 - **Broken Instagram links on two home-page speaker cards.** The Yazan
@@ -130,11 +155,10 @@ themselves:
   collage wasn't extractable through the same method used for other
   sections (no `<header>`-scoped `<img>` set was found); the built hero uses
   a single background image instead. Flagged for a follow-up pass.
-- **"Get to know us" tab imagery.** The live site swaps a distinct image per
-  tab (What is Jordan Create? / Who Should Attend? / What Happens?). The
-  same hero artwork is reused across all three tabs here rather than three
-  distinct images, since the per-tab images weren't individually identified
-  during extraction.
+- ~~**"Get to know us" tab imagery.**~~ **Fixed 2026-09-10.** Found the 3
+  distinct per-tab images (`Image1`/`Image2`/`Image3` in the live site's own
+  markup) via a user-supplied saveweb2zip.com archive and wired them in —
+  see the "Archive cross-reference" section below.
 
 ## Additions beyond the live site (explicitly allowed — this is the one place "better" is allowed)
 

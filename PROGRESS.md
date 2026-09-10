@@ -42,6 +42,23 @@ section, `CountUpStat` number count-up (Numbers + partner reach stats),
 Hero/PageHero entrance animations, gallery marquee (CSS, pause-on-hover,
 `prefers-reduced-motion` respected throughout).
 
+## Typography precision pass: ✅ done
+
+Cross-referenced every visible text style against the Phase 0 computed-
+style JSON (real `getComputedStyle()` output) and corrected every
+mismatch — font-family/size/color/weight, the orange-highlight vs.
+50%-opacity split-color headings, per-page hero sizes (166px vs 100px),
+and a missing section on `/speakers`. See `FIDELITY-NOTES.md`.
+
+## Archive cross-reference: ✅ done
+
+Diffed a user-supplied saveweb2zip.com full-site archive against our own
+`ASSET-MANIFEST.json` — only 3 genuinely new assets, all real gaps: the
+correct favicon, a grain-texture overlay on speaker portraits, and the 3
+distinct "Get to know us" tab images (was reusing 1). Also added the
+prev/next arrow controls on that panel (master-prompt spec, not yet built
+until now). See `FIDELITY-NOTES.md`.
+
 ## Verified
 
 - `npm run build` succeeds cleanly — 47 static routes generated (including
@@ -52,6 +69,8 @@ Hero/PageHero entrance animations, gallery marquee (CSS, pause-on-hover,
 - Reveal animations confirmed firing on real scroll (not just present in
   DOM) via live opacity checks.
 - Count-up confirmed animating 0 → real value on scroll-into-view.
+- Favicon, grain overlay, and tab-image arrow-cycling all confirmed live
+  in the DOM.
 
 ## Not yet built / known gaps
 
@@ -59,9 +78,8 @@ Hero/PageHero entrance animations, gallery marquee (CSS, pause-on-hover,
   Garamond stand-in. Needs a decision before public deploy (see
   `EXTRACTION.md` §1).
 - **Speakers page hero collage** — using a single background image instead
-  of the live site's 8-image asymmetric floating collage.
-- **Get to know us tab imagery** — reusing one image across all 3 tabs
-  instead of 3 distinct per-tab images.
+  of the live site's 8-image asymmetric floating collage. (Get to know us
+  tab imagery, previously listed here too, is now fixed — see below.)
 - **Gallery second-row ordering** — reversed, not independently re-derived
   from the live site's actual algorithm.
 - **Dedicated per-breakpoint visual QA** — built responsive throughout with
