@@ -25,10 +25,11 @@ export const mobileNavItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   { id: "home", label: "Home", href: "/", order: 0 },
-  { id: "community", label: "Community", href: "/speakers", order: 1 },
-  { id: "partner", label: "Partner With Us", href: "/partner-with-us", order: 2 },
-  { id: "about", label: "About Us", href: "/about-us", order: 3 },
-  { id: "contact", label: "Contact Us", href: "https://tally.so/r/kdK1Lj", order: 4 },
+  { id: "agenda", label: "Agenda", href: "/agenda", order: 1 },
+  { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
+  { id: "partner", label: "Partner With Us", href: "/partner-with-us", order: 3 },
+  { id: "about", label: "About Us", href: "/about-us", order: 4 },
+  { id: "contact", label: "Contact Us", href: "https://tally.so/r/kdK1Lj", order: 5 },
 ];
 
 export const siteSettings: SiteSettings = {

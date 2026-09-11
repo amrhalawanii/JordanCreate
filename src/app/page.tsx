@@ -17,7 +17,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         {/* Sticky hero pin: Get to Know Us scrolls up and covers the hero */}
         <div className="relative">
           <Hero />

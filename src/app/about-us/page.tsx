@@ -27,7 +27,7 @@ export default async function AboutUsPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <PageHero hero={hero} />
         <OurStory />
         <MissionVisionValue />

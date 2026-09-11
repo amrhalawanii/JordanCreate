@@ -7,7 +7,7 @@ export async function Numbers() {
   const stats = await getHomeStats();
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
           <Eyebrow>Numbers</Eyebrow>
@@ -21,7 +21,7 @@ export async function Numbers() {
             <Reveal
               key={stat.id}
               delay={i * 0.08}
-              className="flex flex-col gap-3 rounded-(--radius-default) border border-border-card bg-surface p-6"
+              className="flex flex-col gap-3 rounded-(--radius-default) border border-border-card bg-surface p-6 transition-colors duration-150 hover:border-white/25"
             >
               <span aria-hidden className="h-2 w-2 rounded-full bg-brand-orange" />
               <CountUpStat

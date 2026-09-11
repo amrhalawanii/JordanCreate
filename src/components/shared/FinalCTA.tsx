@@ -7,7 +7,7 @@ export async function FinalCTA() {
   const cta = await getFinalCta();
 
   return (
-    <section className="bg-canvas px-5 py-16 md:px-10">
+    <section className="section-shell bg-canvas">
       <Reveal className="relative mx-auto max-w-(--container-primary) overflow-hidden rounded-(--radius-media) border border-white/10">
         <div className="absolute inset-0">
           <Image

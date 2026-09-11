@@ -1,21 +1,33 @@
-import { getSpeakers, getFeaturedSpeakerSlugs } from "@/content/repository";
+import {
+  getSpeakers,
+  getFeaturedSpeakerSlugs,
+  getSpeakersContentMeta,
+} from "@/content/repository";
 import { SpeakerCard } from "@/components/shared/SpeakerCard";
-import { Reveal } from "@/components/shared/Reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 import { GradientButton } from "@/components/shared/GradientButton";
+import { ContentNotice } from "@/components/shared/ContentNotice";
 
 export async function SpeakersStrip() {
   const [allSpeakers, featuredSlugs] = await Promise.all([
     getSpeakers(),
     getFeaturedSpeakerSlugs(),
   ]);
+  const meta = getSpeakersContentMeta();
   const bySlug = new Map(allSpeakers.map((s) => [s.slug.replace(/⁠/g, ""), s]));
   const featured = featuredSlugs
-    .map((slug) => bySlug.get(slug))
+    .map((slug) => bySlug.get(slug.replace(/⁠/g, "")) ?? bySlug.get(slug))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
+  // If preferred featured slugs miss (handle ≠ marketing slug), fall back to top of list.
+  const cards =
+    featured.length > 0
+      ? featured
+      : allSpeakers.filter((s) => s.portrait.startsWith("http")).slice(0, 9);
+
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -28,17 +40,42 @@ export async function SpeakersStrip() {
               careers.
             </p>
           </div>
-          <GradientButton href="/speakers" external={false} className="w-fit shrink-0 px-6 py-2.5">
+          <GradientButton href="/speakers" className="w-fit shrink-0 px-6 py-2.5">
             View All Speakers
           </GradientButton>
         </Reveal>
 
-        {/* Live site: 3 columns, 20px gap, ~349px cards inside 1088px row */}
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((speaker) => (
-            <SpeakerCard key={speaker.id} speaker={speaker} linkTo="instagram" />
-          ))}
-        </div>
+        {(meta.degraded || meta.message) && (
+          <ContentNotice
+            className="mt-8"
+            degraded={meta.degraded}
+            empty={cards.length === 0}
+            message={
+              cards.length === 0
+                ? meta.message ?? "Speakers will appear here once published."
+                : meta.degraded
+                  ? meta.message
+                  : undefined
+            }
+          />
+        )}
+
+        {cards.length > 0 ? (
+          <Stagger className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((speaker) => (
+              <StaggerItem key={speaker.id}>
+                <SpeakerCard speaker={speaker} />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        ) : (
+          <div className="mt-10 rounded-(--radius-media) border border-border-card bg-surface px-6 py-16 text-center">
+            <p className="font-display text-2xl italic text-text-primary">Lineup loading</p>
+            <p className="mt-2 font-body text-base text-text-gray-light">
+              We&apos;re finalizing this year&apos;s voices. Check back soon.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

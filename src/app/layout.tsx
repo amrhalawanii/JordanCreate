@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { inter } from "./fonts";
+import { inter, ttRamillas } from "./fonts";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { SmoothScrollProvider } from "@/components/shared/SmoothScrollProvider";
+import { SkipLink } from "@/components/shared/SkipLink";
 import "./globals.css";
 
 const description =
@@ -30,8 +31,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${ttRamillas.variable}`}>
       <body>
+        <SkipLink />
         <JsonLd />
         <SmoothScrollProvider />
         {children}

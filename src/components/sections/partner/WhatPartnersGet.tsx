@@ -7,7 +7,7 @@ export async function WhatPartnersGet() {
   const [benefits, copy] = await Promise.all([getPartnerBenefits(), getWhatPartnersGet()]);
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
           <Eyebrow>{copy.eyebrow}</Eyebrow>
@@ -22,15 +22,15 @@ export async function WhatPartnersGet() {
             <Reveal
               key={b.id}
               delay={(i % 3) * 0.08}
-              className="flex flex-col overflow-hidden rounded-(--radius-media) border border-border-card bg-surface"
+              className="group flex flex-col overflow-hidden rounded-(--radius-media) border border-border-card bg-surface transition-colors duration-150 hover:border-white/25"
             >
-              <div className="relative aspect-[4/3] w-full shrink-0 bg-surface-raised">
+              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-surface-raised">
                 <Image
                   src={b.image}
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">

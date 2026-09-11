@@ -6,10 +6,10 @@ export async function Footer() {
   const [navItems, settings] = await Promise.all([getFooterNavItems(), getSiteSettings()]);
 
   return (
-    <footer className="w-full bg-canvas">
-      <div className="mx-auto flex max-w-(--container-wide) flex-col gap-10 px-5 py-16 md:flex-row md:items-start md:justify-between md:px-10">
+    <footer className="w-full border-t border-border-subtle bg-canvas">
+      <div className="mx-auto flex max-w-(--container-wide) flex-col gap-10 px-5 py-16 md:flex-row md:items-start md:justify-between md:px-10 md:py-20">
         <div className="flex flex-col gap-4">
-          <div className="relative h-9 w-32">
+          <Link href="/" aria-label={settings.siteName} className="relative block h-9 w-32">
             <Image
               src="/assets/brand/logo.png"
               alt={settings.siteName}
@@ -17,7 +17,7 @@ export async function Footer() {
               sizes="128px"
               className="object-contain object-left"
             />
-          </div>
+          </Link>
           <p className="max-w-xs font-label text-sm leading-[1.3] text-text-gray-muted">
             {settings.tagline}
           </p>
@@ -25,7 +25,7 @@ export async function Footer() {
             href={settings.instagramUrl}
             target="_blank"
             rel="noreferrer"
-            className="font-label text-sm leading-[1.3] text-text-gray-muted transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+            className="w-fit font-label text-sm leading-[1.3] text-text-gray-muted transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
           >
             Instagram
           </a>

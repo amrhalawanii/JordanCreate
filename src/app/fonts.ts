@@ -1,14 +1,30 @@
+import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 
 /**
- * Product type stack — aligned with jordan-create-dsv1 / mobile app.
- * Display: Georgia (system serif, same as nativeTheme.font.display)
+ * Display: TT Ramillas (live jordancreate.com / Framer marketing type)
  * UI / body / label / utility: Inter
  *
- * Components never import this file for class names — they use Tailwind
- * roles (font-display, font-body, font-label, font-utility) wired through
- * CSS variables in globals.css.
+ * Components use Tailwind roles (font-display, font-body, …) via CSS vars
+ * in globals.css — do not import these classNames directly in sections.
  */
+export const ttRamillas = localFont({
+  src: [
+    {
+      path: "../../public/fonts/tt-ramillas-trl-variable-roman.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/tt-ramillas-trl-variable-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-tt-ramillas",
+  display: "swap",
+});
+
 export const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

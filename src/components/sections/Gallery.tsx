@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getGalleryImages } from "@/content/repository";
 import { Reveal } from "@/components/shared/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 import { GradientButton } from "@/components/shared/GradientButton";
 
@@ -20,7 +21,7 @@ export async function Gallery() {
     colIdx === 0 ? i % 3 === 1 : i % 3 === 0;
 
   return (
-    <section className="bg-canvas px-5 py-16 md:px-10 md:py-24">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <div className="grid grid-cols-1 gap-8 md:h-[810px] md:grid-cols-[1fr_2fr] md:gap-6">
           <Reveal className="flex flex-col items-start gap-6 md:sticky md:top-24 md:self-start">
@@ -34,24 +35,25 @@ export async function Gallery() {
             <GradientButton href="https://tally.so/r/2EyNej">Count Me In</GradientButton>
           </Reveal>
 
-          <div className="grid grid-cols-2 gap-2 md:overflow-y-auto md:pr-1">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:overflow-y-auto md:pr-1">
             {columns.map((col, colIdx) => (
               <div key={colIdx} className="flex flex-col gap-2">
                 {col.map((item, i) => (
-                  <div
-                    key={item.id}
-                    className={`relative w-full overflow-hidden rounded-(--radius-default) border border-white/10 bg-black grayscale ${
-                      isTall(colIdx, i) ? "aspect-[2/3]" : "aspect-[3/2]"
-                    }`}
-                  >
-                    <Image
-                      src={item.image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 25vw, 50vw"
-                      className="object-cover"
-                    />
-                  </div>
+                  <Reveal key={item.id} delay={staggerDelay(Math.min(colIdx * mid + i, 10), 0.06)}>
+                    <div
+                      className={`group relative w-full overflow-hidden rounded-(--radius-default) border border-white/10 bg-black grayscale transition-[filter,transform] duration-300 hover:grayscale-0 ${
+                        isTall(colIdx, i) ? "aspect-[2/3]" : "aspect-[3/2]"
+                      }`}
+                    >
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 768px) 25vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             ))}

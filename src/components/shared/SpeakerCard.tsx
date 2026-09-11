@@ -1,30 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Speaker } from "@/content/schemas/speaker";
+import { resolveInstagramUrl } from "@/lib/instagram";
 import { GrainOverlay } from "./GrainOverlay";
 
-function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
-  // Live jordancreate.com card: ~349×474, 4px pad, surface fill, square
-  // portrait on top + content stack below (name / followers / IG).
+function SpeakerCardBody({
+  speaker,
+  priority = false,
+}: {
+  speaker: Speaker;
+  priority?: boolean;
+}) {
+  // Portrait frame: 3:4, full image visible (contain + top) so heads aren't cropped.
   return (
-    <div className="flex h-full flex-col rounded-(--radius-default) bg-surface p-1">
-      <div className="relative aspect-square w-full overflow-hidden rounded-(--radius-default) bg-canvas">
+    <div className="flex h-full flex-col rounded-(--radius-default) border border-transparent bg-surface p-1 transition-colors duration-150 group-hover:border-white/15 group-focus-visible:border-brand-orange/50">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-(--radius-default) bg-canvas">
         <Image
           src={speaker.portrait}
-          alt={speaker.name}
+          alt=""
           fill
           sizes="(min-width: 1200px) 349px, (min-width: 640px) 33vw, 50vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain object-top transition-transform duration-300 group-hover:scale-105"
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
         />
         <GrainOverlay />
       </div>
       <div className="flex flex-col justify-center gap-4 p-5">
         <div className="flex flex-col gap-1">
-          <p className="font-display text-[20px] italic leading-[1.2] tracking-[-0.4px] text-text-primary">
+          <p className="font-display text-[20px] italic leading-[1.2] tracking-[-0.4px] text-text-primary transition-colors duration-150 group-hover:text-brand-orange">
             {speaker.name}
           </p>
           {speaker.followers && (
-            <p className="font-body text-base leading-[1.4] text-[#a3a3a3]">
+            <p className="font-body text-base leading-[1.4] text-text-gray-mid">
               {speaker.followers}
             </p>
           )}
@@ -34,30 +42,40 @@ function SpeakerCardBody({ speaker }: { speaker: Speaker }) {
           alt=""
           width={24}
           height={24}
+          aria-hidden
+          className="opacity-80 transition-opacity duration-150 group-hover:opacity-100"
         />
       </div>
     </div>
   );
 }
 
-// On the live site, the home page's featured strip links straight to each
-// speaker's Instagram; the full /speakers grid links to the internal detail
-// page instead. Two featured speakers (Yazan Abuajweh, Nasser & Laila) have
-// a raw block of pasted brief text dumped into their href instead of a real
-// Instagram URL on the live site — replicated as-is, not fixed (see
-// FIDELITY-NOTES.md). linkTo="instagram" reproduces that behavior exactly,
-// including the broken links.
+const cardLinkClass =
+  "group block h-full rounded-(--radius-default) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-orange";
+
+// Speakers directory + home strip both link to detail pages for consistency.
+// Instagram remains available on the detail page CTA.
 export function SpeakerCard({
   speaker,
   linkTo = "detail",
+  priority = false,
 }: {
   speaker: Speaker;
   linkTo?: "detail" | "instagram";
+  priority?: boolean;
 }) {
-  if (linkTo === "instagram" && speaker.instagramUrl) {
+  const ig = resolveInstagramUrl(speaker.instagramUrl);
+
+  if (linkTo === "instagram" && ig) {
     return (
-      <a href={speaker.instagramUrl} target="_blank" rel="noreferrer" className="group block h-full">
-        <SpeakerCardBody speaker={speaker} />
+      <a
+        href={ig}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cardLinkClass}
+        aria-label={`${speaker.name} on Instagram (opens in a new tab)`}
+      >
+        <SpeakerCardBody speaker={speaker} priority={priority} />
       </a>
     );
   }
@@ -65,9 +83,10 @@ export function SpeakerCard({
   return (
     <Link
       href={`/highlighted-speakers-blog/${encodeURIComponent(speaker.slug)}`}
-      className="group block h-full"
+      className={cardLinkClass}
+      aria-label={`View ${speaker.name}`}
     >
-      <SpeakerCardBody speaker={speaker} />
+      <SpeakerCardBody speaker={speaker} priority={priority} />
     </Link>
   );
 }

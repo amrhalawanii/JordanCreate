@@ -27,7 +27,7 @@ export default async function PartnerWithUsPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <PageHero hero={hero} />
         <WhoYoureReaching />
         <WhatPartnersGet />

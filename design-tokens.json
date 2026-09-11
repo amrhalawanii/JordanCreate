@@ -40,12 +40,12 @@
   },
   "typography": {
     "families": {
-      "display": "Georgia, \"Times New Roman\", Times, serif",
+      "display": "var(--font-tt-ramillas), Georgia, \"Times New Roman\", Times, serif",
       "label": "Inter, system-ui, sans-serif",
       "body": "Inter, system-ui, sans-serif",
       "utility": "Inter, system-ui, sans-serif"
     },
-    "note": "Matches mobile nativeTheme.font (Georgia display + Inter UI). Marketing TT Ramillas / DM Sans / Host Grotesk retired for product parity.",
+    "note": "Display: TT Ramillas (self-hosted from Framer marketing export). UI: Inter. Georgia remains as display fallback.",
     "scale": {
       "utility": { "fontSize": "11px", "weight": 400, "case": "uppercase" },
       "label": { "fontSize": "13px", "weight": 500 },

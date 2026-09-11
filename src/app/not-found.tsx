@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GradientButton } from "@/components/shared/GradientButton";
 import { getNotFoundContent } from "@/content/repository";
 
 export default async function NotFound() {
@@ -9,18 +9,14 @@ export default async function NotFound() {
   return (
     <>
       <Header />
-      <main className="flex min-h-[60vh] flex-col items-center justify-center gap-6 bg-canvas px-5 py-24 text-center">
-        <h1 className="font-display text-[36px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
+      <main id="main-content" className="flex min-h-[60vh] flex-col items-center justify-center gap-6 bg-canvas px-5 py-24 text-center md:px-10">
+        <h1 className="max-w-xl font-display text-[32px] italic leading-tight text-text-primary uppercase sm:text-[48px]">
           {content.heading}
         </h1>
-        <p className="font-body text-base text-text-gray-light">{content.sub}</p>
-        <Link
-          href={content.cta.href}
-          style={{ backgroundImage: "var(--gradient-brand-orange)" }}
-          className="inline-flex items-center justify-center rounded-(--radius-pill-lg) border-2 border-white/20 px-8 py-3 font-body text-base font-medium leading-[1.2] text-on-orange transition-transform duration-150 hover:scale-[1.02]"
-        >
+        <p className="max-w-md font-body text-base text-text-gray-light sm:text-lg">{content.sub}</p>
+        <GradientButton href={content.cta.href} external={false} className="px-8 py-3">
           {content.cta.label}
-        </Link>
+        </GradientButton>
       </main>
       <Footer />
     </>

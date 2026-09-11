@@ -7,7 +7,7 @@ export async function FAQSection() {
   const entries = await getFAQEntries();
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
           <Eyebrow>FAQ</Eyebrow>

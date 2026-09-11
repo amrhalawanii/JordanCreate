@@ -7,7 +7,7 @@ export async function WhoYoureReaching() {
   const [stats, copy] = await Promise.all([getReachStats(), getWhoYoureReaching()]);
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
           <Eyebrow>{copy.eyebrow}</Eyebrow>
@@ -21,7 +21,7 @@ export async function WhoYoureReaching() {
             <Reveal
               key={stat.id}
               delay={i * 0.1}
-              className="flex flex-col gap-3 rounded-(--radius-default) border border-border-card bg-surface p-6"
+              className="flex flex-col gap-3 rounded-(--radius-default) border border-border-card bg-surface p-6 transition-colors duration-150 hover:border-white/25"
             >
               <CountUpStat
                 value={stat.value}

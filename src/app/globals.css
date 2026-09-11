@@ -35,10 +35,9 @@
   --color-footer-nav-label: #eeba2b;
   --color-accent-red-orange: #f3500f;
 
-  /* Type — Georgia display + Inter for all UI roles (matches mobile DS) */
-  --font-display: Georgia, "Times New Roman", Times, serif;
+  /* Type — TT Ramillas display + Inter UI (live marketing site) */
+  --font-display: var(--font-tt-ramillas), Georgia, "Times New Roman", Times, serif;
   --font-label: var(--font-inter), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
   --font-utility: var(--font-inter), system-ui, sans-serif;
 
@@ -55,6 +54,11 @@
   /* Breakpoints */
   --breakpoint-tablet: 810px;
   --breakpoint-desktop: 1200px;
+
+  /* Shared section rhythm */
+  --section-pad-x: 1.25rem;
+  --section-pad-y: 5rem;
+  --header-height: 4.25rem;
 }
 
 html {
@@ -83,8 +87,64 @@ body::before {
   );
 }
 
+/* Shared section shell — major page bands */
+.section-shell {
+  padding: var(--section-pad-y) var(--section-pad-x);
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding-inline: 2.5rem;
+    padding-block: 7rem;
+  }
+}
+
+/* Screen-reader-only utility (also used by skip link before focus) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.625rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Keyboard focus — restrained brand ring on dark canvas */
+:focus-visible {
+  outline: 2px solid var(--color-brand-orange);
+  outline-offset: 3px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

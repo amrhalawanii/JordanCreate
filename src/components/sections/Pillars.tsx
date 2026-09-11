@@ -6,7 +6,7 @@ export async function Pillars() {
   const pillars = await getPillars();
 
   return (
-    <section className="bg-canvas px-5 py-20 md:px-10 md:py-28">
+    <section className="section-shell bg-canvas">
       <div className="mx-auto max-w-(--container-primary)">
         <Reveal>
           <Eyebrow>Pillars</Eyebrow>
@@ -17,9 +17,16 @@ export async function Pillars() {
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {pillars.map((pillar, i) => (
-            <Reveal key={pillar.id} delay={i * 0.1} className="flex flex-col gap-4">
-              <span aria-hidden className="h-1 w-10 rounded-full bg-brand-orange" />
-              <h3 className="font-body text-xl font-medium leading-[1.2] tracking-[-0.4px] text-text-primary">
+            <Reveal
+              key={pillar.id}
+              delay={i * 0.1}
+              className="group flex flex-col gap-4"
+            >
+              <span
+                aria-hidden
+                className="h-1 w-10 rounded-full bg-brand-orange transition-[width] duration-300 ease-out group-hover:w-16"
+              />
+              <h3 className="font-body text-xl font-medium leading-[1.2] tracking-[-0.4px] text-text-primary transition-colors duration-150 group-hover:text-brand-orange">
                 {pillar.title}
               </h3>
               <p className="font-body text-base leading-[1.2] text-text-gray-muted">

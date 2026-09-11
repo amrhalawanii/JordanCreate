@@ -13,7 +13,7 @@ export async function IntroBlock() {
   const intro = await getIntroBlock();
 
   return (
-    <section className="bg-canvas px-5 py-16 md:px-10">
+    <section className="section-shell bg-canvas">
       <Reveal className="mx-auto flex max-w-(--container-primary) flex-col items-center gap-6 text-center">
         <Eyebrow>{intro.heading}</Eyebrow>
         <div className="flex max-w-2xl flex-col gap-3">

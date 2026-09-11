@@ -7,7 +7,10 @@ import { FinalCTA } from "@/components/shared/FinalCTA";
 import { FAQSection } from "@/components/shared/FAQSection";
 import { Reveal } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/shared/Eyebrow";
-import { getSpeakers, getSpeakersHero } from "@/content/repository";
+import { ContentNotice } from "@/components/shared/ContentNotice";
+import { getSpeakers, getSpeakersContentMeta, getSpeakersHero } from "@/content/repository";
+
+export const revalidate = 60;
 
 const title = "Jordan Create | Speakers";
 const description =
@@ -23,18 +26,16 @@ export const metadata: Metadata = {
 
 export default async function SpeakersPage() {
   const [speakers, hero] = await Promise.all([getSpeakers(), getSpeakersHero()]);
+  const meta = getSpeakersContentMeta();
 
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <PageHero hero={hero} />
-        <section className="bg-canvas px-5 pt-16 md:px-10 md:pt-24">
+        <section className="bg-canvas px-5 pt-16 pb-8 md:px-10 md:pt-24 md:pb-12">
           <Reveal className="mx-auto max-w-(--container-primary)">
             <Eyebrow>Speakers</Eyebrow>
-            {/* On this page "WHAT'S NEXT" is a 50%-opacity fade, not the
-                orange highlight the same heading gets on the home page —
-                confirmed via computed styles on both pages independently. */}
             <h2 className="mt-3 max-w-lg font-display text-[40px] italic leading-[1] tracking-[-0.8px] text-text-primary uppercase sm:text-[56px] sm:tracking-[-1.12px]">
               Meet the voices shaping <span className="opacity-50">what&apos;s next</span>
             </h2>
@@ -44,13 +45,36 @@ export default async function SpeakersPage() {
             </p>
           </Reveal>
         </section>
-        <section className="bg-canvas px-5 py-16 md:px-10 md:py-24">
+        <section className="section-shell bg-canvas">
           <div className="mx-auto max-w-(--container-primary)">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {speakers.map((speaker) => (
-                <SpeakerCard key={speaker.id} speaker={speaker} />
-              ))}
-            </div>
+            {(meta.degraded || (speakers.length === 0 && meta.message)) && (
+              <ContentNotice
+                className="mb-8"
+                degraded={meta.degraded}
+                empty={speakers.length === 0}
+                message={
+                  speakers.length === 0
+                    ? meta.message ?? "No published speakers yet."
+                    : meta.message
+                }
+              />
+            )}
+
+            {speakers.length > 0 ? (
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {speakers.map((speaker, index) => (
+                  <SpeakerCard key={speaker.id} speaker={speaker} priority={index < 3} />
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-(--radius-media) border border-border-card bg-surface px-6 py-20 text-center">
+                <p className="font-display text-3xl italic text-text-primary">Coming soon</p>
+                <p className="mx-auto mt-3 max-w-md font-body text-base text-text-gray-light">
+                  Speaker profiles will show up here as soon as they&apos;re published from the
+                  programme database.
+                </p>
+              </div>
+            )}
           </div>
         </section>
         <FinalCTA />
