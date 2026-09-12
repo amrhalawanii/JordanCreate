@@ -7,8 +7,6 @@ import { FinalCTA } from "@/components/shared/FinalCTA";
 import { FAQSection } from "@/components/shared/FAQSection";
 import { getAgendaHero } from "@/content/repository";
 
-export const revalidate = 60;
-
 const title = "Jordan Create | Agenda";
 const description =
   "From the first session to the last toast, every pillar, every speaker, every moment mapped out so you never miss what matters.";

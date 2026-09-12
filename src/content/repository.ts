@@ -1,9 +1,11 @@
 /**
  * Content repository — the only thing components are allowed to import
  * content through. Selects the adapter based on CONTENT_SOURCE:
- * - static (default): hardcoded TS
- * - supabase: live speakers + agenda from Supabase (anon + RLS), rest static
+ * - static (default / MVP): hardcoded TS under src/content/data/ (from jordancreate.com)
+ * - supabase: live speakers + agenda from Supabase (anon + RLS), rest static — opt-in later
  * - api: reserved stub for Express programme API
+ *
+ * Launch default is static so the site never hits a DB unless explicitly switched.
  */
 import * as staticAdapter from "./adapters/static";
 import * as apiAdapter from "./adapters/api";

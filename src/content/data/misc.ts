@@ -18,34 +18,43 @@ export const finalCta = {
   backgroundImage: "/assets/cta/room-background.png",
 };
 
-// About Us — "Our story"
+// About Us — "Our story" (live: text-only split + scroll color reveal)
 export const ourStory = {
   eyebrow: "OUR STORY",
-  eyebrowSecondary: "JORDAN CREATE 2025",
   body: "Creators, agencies, and brands were operating in parallel universes. No central hub. Visibility without access. Energy without continuity. Jordan Create changed that.",
+  highlightSuffix: "changed that.",
   closingLine: "Jordan's creative community finally had a home",
-  cta: { label: "MORE ABOUT US", href: "https://tally.so/r/kdK1Lj" } satisfies CTA,
-  image: "/assets/about/our-story.jpg",
 };
 
-// About Us — Mission / Vision / Value
+// About Us — Mission / Vision / Value (live layout: mission text-only,
+// vision image-left, value image-right — two distinct photos)
 export const missionVisionValue = [
   {
     id: "mission",
     heading: "MISSION",
+    eyebrow: "MORE ABOUT US",
     body: "Jordan Create is a platform built to help creative people get better at what they do. We gather the best minds from creators and marketers to business owners to share what works, collaborate, and expand their networks.",
+    layout: "text-only" as const,
+    image: undefined as string | undefined,
   },
   {
     id: "vision",
     heading: "VISION",
     body: "We are more than a talk or a panel. We are an experience where you get the inspiration, the education, the opportunities, and the connections you need to take your work to the next level.",
+    layout: "image-left" as const,
+    image: "/assets/about/vision.jpg",
   },
   {
     id: "value",
     heading: "VALUE",
     body: "Jordan Create is the home of Jordan's creative community the place where creators, marketers, business owners, and tech leaders meet to turn big ideas into reality. This is where the next big projects, partnerships, and trends start.",
+    layout: "image-right" as const,
+    image: "/assets/about/value.jpg",
   },
-].map((b) => ({ ...b, cta: { label: "Join Us", href: "https://tally.so/r/kdK1Lj" } satisfies CTA, image: "/assets/about/mission-vision-value.jpg" }));
+].map((b) => ({
+  ...b,
+  cta: { label: "Join Us", href: "https://tally.so/r/kdK1Lj" } satisfies CTA,
+}));
 
 // About Us — team section intro copy
 export const meetTheCrewIntro = {

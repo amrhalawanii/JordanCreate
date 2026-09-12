@@ -16,6 +16,11 @@ export function SmoothScrollProvider() {
       duration: 1.1,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
+      // Nested overflow panels (gallery #work) mark themselves with this attr.
+      prevent: (node) =>
+        node instanceof HTMLElement &&
+        (node.hasAttribute("data-lenis-prevent") ||
+          Boolean(node.closest("[data-lenis-prevent]"))),
     });
 
     let rafId: number;

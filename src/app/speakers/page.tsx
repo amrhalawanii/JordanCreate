@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PageHero } from "@/components/shared/PageHero";
+import { SpeakersHero } from "@/components/shared/SpeakersHero";
 import { SpeakerCard } from "@/components/shared/SpeakerCard";
 import { FinalCTA } from "@/components/shared/FinalCTA";
 import { FAQSection } from "@/components/shared/FAQSection";
@@ -9,8 +9,6 @@ import { Reveal } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 import { ContentNotice } from "@/components/shared/ContentNotice";
 import { getSpeakers, getSpeakersContentMeta, getSpeakersHero } from "@/content/repository";
-
-export const revalidate = 60;
 
 const title = "Jordan Create | Speakers";
 const description =
@@ -32,7 +30,7 @@ export default async function SpeakersPage() {
     <>
       <Header />
       <main id="main-content">
-        <PageHero hero={hero} />
+        <SpeakersHero hero={hero} />
         <section className="bg-canvas px-5 pt-16 pb-8 md:px-10 md:pt-24 md:pb-12">
           <Reveal className="mx-auto max-w-(--container-primary)">
             <Eyebrow>Speakers</Eyebrow>

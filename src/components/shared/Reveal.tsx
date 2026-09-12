@@ -31,8 +31,8 @@ export function Reveal({
       whileInView={{ opacity: 1, y: 0 }}
       // "some" = any pixel visible. Fractional `amount` breaks on tall sections
       // (e.g. speakers grid) because 12–15% of the element never fits the viewport.
-      viewport={{ once: true, amount: "some", margin: "0px 0px -40px 0px" }}
-      transition={{ duration: 0.5, ease: EASE, delay }}
+      viewport={{ once: true, amount: "some", margin: "0px 0px -10% 0px" }}
+      transition={{ duration: 0.7, ease: EASE, delay }}
       className={className}
     >
       {children}
@@ -75,7 +75,7 @@ export function StaggerItem({
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: "some", margin: "0px 0px -8% 0px" }}
-      transition={{ duration: 0.5, ease: EASE }}
+      transition={{ duration: 0.65, ease: EASE }}
       className={className}
     >
       {children}

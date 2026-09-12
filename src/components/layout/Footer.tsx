@@ -25,9 +25,16 @@ export async function Footer() {
             href={settings.instagramUrl}
             target="_blank"
             rel="noreferrer"
-            className="w-fit font-label text-sm leading-[1.3] text-text-gray-muted transition-colors duration-100 ease-[cubic-bezier(0,0,1,1)] hover:text-brand-orange"
+            aria-label="Instagram (opens in a new tab)"
+            className="inline-flex w-fit opacity-70 transition-opacity duration-100 ease-[cubic-bezier(0,0,1,1)] hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-orange"
           >
-            Instagram
+            <Image
+              src="/assets/brand/instagram-icon.png"
+              alt=""
+              width={24}
+              height={24}
+              aria-hidden
+            />
           </a>
         </div>
 

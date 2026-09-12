@@ -4,11 +4,11 @@ import type { NavItem, SiteSettings } from "../schemas/nav";
 // Phase 0 extraction — "AGENDA" pointing at /speakers was a documented dup
 // at the time, but is no longer accurate and is fixed here.
 export const desktopNavItems: NavItem[] = [
-  { id: "home", label: "Home", href: "/", order: 0 },
+  { id: "home", label: "HOME", href: "/", order: 0 },
   { id: "agenda", label: "AGENDA", href: "/agenda", order: 1 },
-  { id: "speakers", label: "Speakers", href: "/speakers", order: 2 },
-  { id: "partner", label: "Partner with Us", href: "/partner-with-us", order: 3 },
-  { id: "about", label: "About Us", href: "/about-us", order: 4 },
+  { id: "speakers", label: "SPEAKERS", href: "/speakers", order: 2 },
+  { id: "partner", label: "PARTNER WITH US", href: "/partner-with-us", order: 3 },
+  { id: "about", label: "ABOUT US", href: "/about-us", order: 4 },
 ];
 
 // Mobile overlay menu — note the live site labels this item "For Partners"

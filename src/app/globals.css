@@ -58,7 +58,7 @@
   /* Shared section rhythm */
   --section-pad-x: 1.25rem;
   --section-pad-y: 5rem;
-  --header-height: 4.25rem;
+  --header-height: 5.125rem; /* 82px — live Framer nav */
 }
 
 html {

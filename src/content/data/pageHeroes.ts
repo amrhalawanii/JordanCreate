@@ -6,6 +6,7 @@ export const speakersHero: PageHero = {
   headingSizeDesktop: 166,
   subheading: "Built for people who move Jordan's creative industry forward",
   cta: { label: "Count Me In", href: "https://tally.so/r/pbR6xP" },
+  // Unused by SpeakersHero (solid black + collage); kept for schema parity.
   backgroundImage: "/assets/about/page-hero-bg.png",
 };
 

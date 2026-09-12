@@ -1,5 +1,10 @@
 # Speakers & Agenda — Supabase integration (website-step-2)
 
+> **MVP launch:** the public site ships with `CONTENT_SOURCE=static`. Speakers,
+> agenda, FAQ, partners, team, gallery, and all marketing copy are embedded in
+> `src/content/data/` (extracted from [jordancreate.com](https://www.jordancreate.com/)).
+> Re-enable Supabase only when you are ready to manage programme data in the DB.
+
 ## Scope
 Live **speakers** and **agenda** from Supabase; all other marketing content stays static.
 
@@ -20,9 +25,9 @@ Live **speakers** and **agenda** from Supabase; all other marketing content stay
 | Empty confirmed rows | Empty-state UI + status message |
 | Detail slug miss on live | Tries static slug as migration safety net |
 
-Cache: `unstable_cache` **60s** + page `revalidate = 60` on `/speakers` and `/agenda`.
+Cache (when `CONTENT_SOURCE=supabase`): `unstable_cache` **60s**. Static MVP pages do not ISR-poll the DB.
 
-## Enable locally
+## Enable locally (post-MVP)
 1. Copy `.env.example` → `.env.local`
 2. Set:
    ```bash
@@ -34,7 +39,7 @@ Cache: `unstable_cache` **60s** + page `revalidate = 60` on `/speakers` and `/ag
 3. (Recommended) Run `docs/sql/programme-public-read.sql` in the Supabase SQL editor, then remove the service role line.
 4. `npm run dev`
 
-Leave `CONTENT_SOURCE=static` for offline / CI without secrets.
+Leave `CONTENT_SOURCE=static` for MVP launch, offline, and CI without secrets.
 
 ## Mapping (DB → UI)
 | UI field | Source |
